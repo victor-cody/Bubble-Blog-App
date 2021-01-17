@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Ikechukwu Victor" />
+    {% if title %}
+    <title>Flask Blog - {{title}}</title>
+    {% else %}
+    <title>Flask Blog</title>
+    {% endif %}
+    <!-- Favicons -->
+    <link href="{{ url_for('static', filename='media/flask-icon.png') }}" rel="icon" />
+    <link href="{{url_for('static', filename = 'lib/animate/animate.min.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}" />
+    <!-- Fonts && Icons -->
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'lib/ionicons/css/ionicons.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+  </head>
+
+  <body class="bg-white pb-3">
+    <!--==========================
+  Header
+  ============================-->
+  <header id="header" class="bg-dark">
+    <div class="container pb-2">
+        <h1 class="navbar-brand ml-2 ">
+          <a class="text-light" href="/">
+            <img src=" {{ url_for('static', filename='media/favicon.ico') }} " alt="blog logo" srcset="" class="mr-1" />
+            Flask Blog
+          </a>
+        </h1>
+
+      <nav class="float-right navbar navbar-expand-md navbar-dark" role="navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+          aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggle">
+          <div class="navbar-nav mr-4 pr-5 border-right">
+            <a class="nav-item nav-link" href="/main">Home</a>
+            <a class="nav-item nav-link" href="{{ url_for('posts') }}">Blog</a>
+            <a class="nav-item nav-link" href="">About</a>
+          </div> 
+          <!-- Navbar Right Side -->
+          <div class="navbar-nav border-right mr-3 pr-3">
+            <a class="nav-item nav-link" href="{{ url_for('login') }}" target="_blank">Login</a>
+            <a class="nav-item nav-link" href="{{ url_for('register') }}" target="_blank">Register</a>
+          </div>
+
+          <input type="checkbox" name=" switch theme" id="switch-theme" aria-label="Toggle Dark Mode">
+        <label for="" id="dark-mode-toggle" ></label>
+        </div>
+      </nav>
+      
+    </div>
+  </header>
+  <!-- header -->
+
+     <div class="section-header mt-3">
+      {% block header %}
+
+      {% endblock %}
+       
+     </div>
+    <main role="main" class="container main mt-1 pb-3">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <!-- Displaying the Flashed Messages on the pages -->
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <ul class=flashes>
+              {% for category, message in messages %}
+              <div class="alert alert-{{category}}" role="alert">
+                {{ message }}
+              </div>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          {% endwith %}
+          <!-- our main content container -->
+          {% block content %}
+
+           {% endblock %}
+          </div>
+        <div class="col-md-4">
+          <div class="content-section">
+            <h3>Media</h3>
+            <p class="text-muted h5">
+              You can put any information here you'd like.
+            </p>
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-light drop-down">
+                Latest Posts
+              </li>
+              <li class="list-group-item list-group-item-light drop-down">
+                Announcements
+              </li>
+              <li class="list-group-item list-group-item-light">Calendars</li>
+              <li class="list-group-item list-group-item-light">etc</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!--==========================
+    Mobile Nav Section
+  ============================-->
+  <nav id="mobile-nav" class="mobile-nav " role="navigation">
+    <ul class="" style="touch-action: pan-y" id="">
+      <li class="menu-active menu-item-active"><a href="#intro">Home</a></li>
+      <li class=""><a href="#about">About Us</a></li>
+      <li class="menu-has-children">
+        <i class="fa fa-chevron-down"></i><a href="#services">Services</a>
+        <ul class="toservices">
+          <li><a href="#">Lorem Ipsum</a></li>
+          <li><a href="#">Dolor Sitema</a></li>
+          <li><a href="#">Book Business</a></li>
+          <li><a href="#">Explore more</a></li>
+          <li><a href="#">records</a></li>
+          <li><a href="#">Meet professionals</a></li>
+        </ul>
+      </li>
+      <li class=""><a href="#portfolio">Portfolio</a></li>
+      <li class=""><a href="#team">Team</a></li>
+      <li class="menu-has-children">
+        <i class="fa fa-chevron-down"></i
+        ><a href="#" class="sf-with-ul">Drop Down</a>
+        <ul style="display: none">
+          <li><a href="#">Drop Down 1</a></li>
+          <li><a href="#">Drop Down 3</a></li>
+          <li><a href="#">Drop Down 4</a></li>
+          <li><a href="#">Drop Down 5</a></li>
+        </ul>
+      </li>
+      <li class=""><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <!-- #mobile nav menu -->
+    <a href="#" class="back-to-top" title="back to top" aria-label="back to top"><i class="ion-android-arrow-up"></i></a>
+    <!-- Our Javascript files -->
+    <!-- Block for individual scripts for our individual files -->
+    {% block scripts %} 
+    
+    {% endblock %}
+    <!-- Main JS File -->
+    <script src="{{ url_for('static', filename='js/main.js') }}" crossorigin="anonymous"></script>
+  </body>
+
+</html>

@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block header %}
+    <h2></h2>
+{% endblock %}
+
+{% block content %}
+
+<section class="content-section " id="contact">
+    <div class="row text-center ">
+        <a class="ml-2 bg-dark col-2 " href="/">
+            <img src=" {{ url_for('static', filename='media/favicon.ico') }} " alt="blog logo" srcset=""  />
+          </a>
+      </div>
+    <form action="" method='post' role="form" role="form" class="form row justify-content-center">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group col-lg-10" >
+            <legend class="border-bottom mb-3 pb-3 h4 text-center">
+                Join Us Today
+            </legend>
+            <div class="form-group ">
+
+                {{ form.username.label(class="form-control-label") }}
+                {% if form.username.errors %}
+                    {{ form.username(class=" form-control form-control-md is-invalid is-invalid ", placeholder="Username") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.username.errors %}
+                                <p class="">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.username(class=" form-control form-control-md ", placeholder="Username") }}
+                {% endif %}
+                
+            </div>
+            <div class="form-group ">
+                 {{ form.email.label(class="form-control-label") }}
+                {% if form.email.errors %}
+                    {{ form.email(class=" form-control form-control-md is-invalid ", placeholder="example@gmail.com") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                                <p class="">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class=" form-control form-control-md  ",placeholder="example@email.com") }}
+                {% endif %}
+            </div>
+            <div class="form-group ">
+                 {{ form.password.label(class="form-control-label") }}
+                {% if form.password.errors %}
+                    {{ form.password(class=" form-control form-control-md  is-invalid ", placeholder="Ssh this is private") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                                <p class="">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.password(class=" form-control form-control-md  ", placeholder="Ssh this is private") }}
+                {% endif %}
+            </div>
+            <div class="form-group ">
+                {{ form.confirm_password.label(class="form-control-label") }}
+                {% if form.confirm_password.errors %}
+                    {{ form.confirm_password(class=" form-control form-control-md is-invalid ", placeholder="Must match password") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.confirm_password.errors %}
+                                <p class="">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.confirm_password(class=" form-control form-control-md ", placeholder="Must match password") }}
+                {% endif %}
+            </div>
+            <div class="form-group ">
+                {{ form.submit(class="btn btn-lg btn-outline-success") }}
+            </div>
+        </fieldset>
+    </form>
+
+</section>
+
+<section class="container border-top mt-4 pt-2 pb-2">
+    <small class="text-muted text-capitalize">already have an account ? <a href="{{url_for('login')}}" class="ml-3">sign in</a></small>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

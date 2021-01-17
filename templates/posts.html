@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block header %}
+  <section class="quote">
+    <h2>
+      " No one can whistle a symphony alone. <br />
+      It takes a whole orchestra to play it "
+      <br />
+      <span> - H.E Luccok </span>
+    </h2>
+  </section>
+{% endblock %}
+
+{% block content %}
+
+  {% for article in posts %}
+
+  <div class="row justify-content-center">
+    <div class="col-lg-9">
+      <article class="text-mute article-item filter-web wow toFadeIn content-section  bg-light"  role="article" data-wow-delay="500" role="article">
+          <figure role = "figure">
+            <img src="{{ url_for('static', filename='media/banner.jpg')}}" class="img-fluid" alt="" role="img">
+            <a href="{{ url_for('static', filename='media/banner.jpg')}}" class="link-preview" data-lightbox="portfolio" data-title="Web 3" title="Preview"><i class="ion ion-eye"></i></a>
+            <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+            <div class="icon">
+              <img src=" {{ url_for('static', filename='media/team/Cristi2.jpg' ) }} " alt="{{article.author}} profile picture" srcset="" class="mr-1" />
+            </div>
+          </figure>
+
+          <div class="article-info bg-light">
+            <h4 ><a href="#" class="h4">By {{article.author}} </a></h4>
+            <h5 class="border-top pt-2">{{article.title}}</h5>
+            <p>
+              {{article.body}} …
+            </p>
+          </div>
+          
+      </article>
+    </div>
+  </div>
+
+  {% endfor %}
+
+{% endblock %}

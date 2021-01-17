@@ -1,0 +1,53 @@
+blog_posts = [
+    {
+    "author": "Alexis",
+    "author_img": "Alexis2",
+     "title": "Changing from flow",
+     "body": "Our simple budgeting feature allows you to separate out your spending and set realistic limits each month. That means you",
+     "date": "17 12: 30: 04 2020"
+     },
+
+    {
+        "author": "Cristal",
+        "author_img": "Cristi2",
+        "title": "Receive money in any currency with no fees",
+        "body": """ Online Banking
+                Our modern web and mobile applications allow you to keep track of your finances wherever you are in the world.
+                Simple Budgeting
+                See exactly where your money goes each month. Receive notifications when you’re close to hitting your limits.
+            """,
+        "date": "17 12: 30: 36 2020"
+    },
+
+    {
+        "author": " Wilson Hutton",
+        "author_img": "Diana2",
+        "title": "Take your Easybank card wherever you go",
+        "body": "cum natus animi iure sit repudiandae nihil, unde quam suscipit vero asperiores, excepturi aliquid maxime nisi perferendis iusto obcaecati, at. Esse facere laboriosam, soluta dolor nulla enim labore neque dolorum similique omnis accusantium est molestiae aspernatur ullam amet ipsa perspiciatis nihil qui cupiditate",
+        "date": "17 12: 32: 02 2020"
+    },
+
+    {
+        "author": "Mosh",
+        "author_img": "Dragos2",
+        "title": "Python Init",
+        "body": "Inventore nobis totam cupiditate quam adipisci obcaecati sint ea ipsam illo quasi dicta, rem earum hic eveniet, consectetur culpa porro velit exercitationem, fuga eum quidem cumque. Nam nisi asperiores sunt iure magni sequi commodi aut at molestias,",
+        "date": "17 14: 08: 47 2020"
+    },
+
+    {
+        "author": " Claire Robinson",
+        "author_img": "py2",
+        "title": "Our invite-only Beta accounts are now live!",
+        "body": "The world is getting smaller and we’re becoming more mobile. So why should you be forced to only receive money in a single",
+        "date":" 17 18: 19: 45 2020"
+    },
+
+    {
+        "author": "Ikechukwu Linda",
+        "author_img": "linda-ikechukwu",
+        "title": "Dev Life",
+        "body": "consequuntur, odit! Ullam facere, similique unde nostrum excepturi deserunt magni blanditiis alias ducimus at quisquam quae ab voluptatem, amet nihil ea, corrupti molestiae deleniti tempore eveniet animi quasi neque architecto iure.",
+        "date":  "18 15: 46: 08 2020"
+    },
+]
