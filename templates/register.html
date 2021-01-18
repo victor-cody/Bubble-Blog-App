@@ -1,17 +1,11 @@
 {% extends "layout.html" %}
+{% from 'components/blog_logo.html' import center_blog_logo %}
 
-{% block header %}
-    <h2></h2>
-{% endblock %}
 
 {% block content %}
 
-<section class="content-section " id="contact">
-    <div class="row text-center ">
-        <a class="ml-2 bg-dark col-2 " href="/">
-            <img src=" {{ url_for('static', filename='media/favicon.ico') }} " alt="blog logo" srcset=""  />
-          </a>
-      </div>
+<section class="content-section col-md-10 wow fadeInLeftBig" id="contact" data-wow-delay="0.25s">
+    {{ center_blog_logo() }}
     <form action="" method='post' role="form" role="form" class="form row justify-content-center">
         {{ form.hidden_tag() }}
         <fieldset class="form-group col-lg-10" >

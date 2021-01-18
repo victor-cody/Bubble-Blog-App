@@ -1,8 +1,10 @@
-const scrollToTopButton = document.querySelector(".back-to-top");
+(function ($) {
+  
+  const scrollToTopButton = document.querySelector(".back-to-top");
 
 function headerScroll() {
   // Get the current scroll value
-  let Y = document.documentElement.scrollTop || document.body.scrollTop;
+  let Y = document.documentElement.scrollTop || document.body.scrollTop ;
   // If the scroll value is greater than the window height, let's add a class to the scroll-to-top button to show it!
   if (Y > 190) {
     scrollToTopButton.classList.add("show-toTop-btn");
@@ -31,9 +33,14 @@ scrollToTopButton.addEventListener("click", (e) => {
   scrollToTop();
 });
 
+
 window.addEventListener("scroll", () => {
   headerScroll();
 });
+
+ // Initiate the wowjs animation library
+ new WOW().init();
+
 
 // a dark Mode API
 const toggleModeButton = document.getElementById("dark-mode-toggle");
@@ -85,4 +92,4 @@ window.addEventListener("load", () => {
   }
 });
 
-
+})(jQuery)

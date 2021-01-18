@@ -97,7 +97,7 @@ h6 {
   transform: scale(1);
 }
 
-.show-toTop-btn:hover {
+.back-to-top i:hover {
   transform: scale(1.14);
 }
 
@@ -157,7 +157,7 @@ h6 {
 --------------------------------------------------------------*/
 
 #header {
-  height: 78px;
+  height: 80px;
   /* background: rgba(0, 0, 0, 0.9); */
   transition: all 0.5s;
   z-index: 997;
@@ -168,7 +168,7 @@ h6 {
 #header .container {
   padding: 8px 0 0;
   width: 90%;
-  height: 90%;
+  height: 100%;
 }
 
 #switch-theme{
@@ -523,6 +523,11 @@ h6 {
   width: 50%;
 }
 
+
+.blog-logo{
+  width:40px !important;
+  height: 40px !important;
+}
 /* Section with background
 --------------------------------*/
 
@@ -1239,6 +1244,10 @@ h6 {
   border-radius: 1.96px solid grey;
 }
 
+.form .form-control:focus,.form .form-control:active{
+  background: inherit;
+}
+
  /* .form input:focus {
   border-bottom: 1px solid #007bff;
 } */
@@ -1504,15 +1513,15 @@ h6 {
 }
 
 @media (max-width: 991px) {
-  #header {
-    height: 72px;
+  /* #header {
+    height: 60px;
     padding: 10px 0;
   }
 
   #header .logo h1 {
     font-size: 28px;
     padding: 8px 0;
-  }
+  } */
 
   #intro {
     padding: 140px 0 60px 0;
@@ -1572,11 +1581,20 @@ h6 {
   }
 }
 
-@media (max-width: 440px) {
+@media (max-width: 574px) {
   #intro {
     padding: 100px 0 20px 0;
   }
   p {
-    font-size: 1.8rem !important;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 374px) {
+  #intro {
+    padding: 100px 0 20px 0;
+  }
+  p {
+    font-size: 1.18rem;
   }
 }
