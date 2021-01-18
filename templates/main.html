@@ -1,6 +1,11 @@
 {% extends "layout.html" %}
+{% from 'components.html' import Blog_Header %}
 
 {% block header %}
+  {{Blog_Header()}}
+{% endblock %}
+
+{% block content %}
 <section class="header">
     {% if user_words %}
       <h1 class="intro-text">
@@ -15,11 +20,7 @@
       </h1>
     {% endif %} 
 </section>
-{% endblock %}
-
-{% block content %}
-
-    <div class="container text-center bg-dark text-light">
+    <section class="container text-center bg-dark text-light">
         
     <div class="bg bg-1">
 
@@ -43,7 +44,7 @@
                 {% endfor %}
             </span>
     </div>
-    </div>
+    </section>
 
 {% endblock %}
 

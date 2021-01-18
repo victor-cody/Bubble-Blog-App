@@ -1,0 +1,38 @@
+<!-- Header -->
+{% macro Blog_Header() -%}
+<header id="header" class="bg-dark wow fadeInDown">
+    <div class="container pb-2">
+        <h1 class="navbar-brand ml-2 ">
+          <a class="text-light" href="/">
+            <img src=" {{ url_for('static', filename='media/favicon.ico') }} " alt="blog logo" srcset="" class="mr-1" />
+            Flask Blog
+          </a>
+        </h1>
+
+      <nav class="float-right navbar navbar-expand-md navbar-dark" role="navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+          aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggle">
+          <div class="navbar-nav mr-4 pr-5 border-right">
+            <a class="nav-item nav-link" href="/main">Home</a>
+            <a class="nav-item nav-link" href="{{ url_for('posts') }}">Blog</a>
+            <a class="nav-item nav-link" href="">About</a>
+          </div> 
+          <!-- Navbar Right Side -->
+          <div class="navbar-nav border-right mr-3 pr-3">
+            <a class="nav-item nav-link" href="{{ url_for('login') }}" target="_blank">Login</a>
+            <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+          </div>
+
+          <input type="checkbox" name=" switch theme" id="switch-theme" aria-label="Toggle Dark Mode">
+        <label for="" id="dark-mode-toggle" ></label>
+        </div>
+      </nav>
+      
+    </div>
+  </header>
+{%- endmacro %}
+
+  <!-- end header -->

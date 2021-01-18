@@ -97,7 +97,7 @@ h6 {
   transform: scale(1);
 }
 
-.show-toTop-btn:hover {
+.back-to-top i:hover {
   transform: scale(1.14);
 }
 
@@ -157,7 +157,7 @@ h6 {
 --------------------------------------------------------------*/
 
 #header {
-  height: 78px;
+  height: 80px;
   /* background: rgba(0, 0, 0, 0.9); */
   transition: all 0.5s;
   z-index: 997;
@@ -168,7 +168,7 @@ h6 {
 #header .container {
   padding: 8px 0 0;
   width: 90%;
-  height: 90%;
+  height: 100%;
 }
 
 #switch-theme{
@@ -1504,15 +1504,6 @@ h6 {
 }
 
 @media (max-width: 991px) {
-  #header {
-    height: 72px;
-    padding: 10px 0;
-  }
-
-  #header .logo h1 {
-    font-size: 28px;
-    padding: 8px 0;
-  }
 
   #intro {
     padding: 140px 0 60px 0;

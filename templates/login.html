@@ -1,12 +1,13 @@
 {% extends "layout.html" %}
+{% from 'components.html' import Blog_Header %}
 
 {% block header %}
-    <h2></h2>
+  {{Blog_Header()}}
 {% endblock %}
 
 {% block content %}
 
-<section class="content-section mb-3" id="contact">
+<section class="content-section mb-3 col-md-10 wow fadeInLeftBig" id="contact">
   <div class="row text-center ">
     <a class="ml-2 bg-dark col-2 " href="/">
         <img src=" {{ url_for('static', filename='media/favicon.ico') }} " alt="blog logo" srcset=""  />
@@ -73,8 +74,8 @@
         <section class="container mt-4 pt-2 pb-2">
           <small class="text-muted text-capitalize">don't have an account ? <a href="{{url_for('register')}}" class="ml-3">sign up now</a>
           </small>  
-  </section>
-</section>
+       </section>
+    </section>
 </section>
 
 

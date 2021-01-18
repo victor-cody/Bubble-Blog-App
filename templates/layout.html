@@ -33,92 +33,71 @@
     <!-- Fonts && Icons -->
     <link rel="stylesheet" href="{{ url_for('static', filename = 'lib/ionicons/css/ionicons.min.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+
+    <script>
+      var renderPage = true;
+  
+    if(navigator.userAgent.indexOf('MSIE')!==-1
+      || navigator.appVersion.indexOf('Trident/') > 0){
+         /* Microsoft Internet Explorer detected in. */
+         alert("Please view this in a modern browser such as Chrome or Microsoft Edge.");
+         renderPage = false;
+    }
+    </script>
+
   </head>
 
   <body class="bg-white pb-3">
     <!--==========================
   Header
   ============================-->
-  <header id="header" class="bg-dark">
-    <div class="container pb-2">
-        <h1 class="navbar-brand ml-2 ">
-          <a class="text-light" href="/">
-            <img src=" {{ url_for('static', filename='media/favicon.ico') }} " alt="blog logo" srcset="" class="mr-1" />
-            Flask Blog
-          </a>
-        </h1>
-
-      <nav class="float-right navbar navbar-expand-md navbar-dark" role="navigation">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
-          aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarToggle">
-          <div class="navbar-nav mr-4 pr-5 border-right">
-            <a class="nav-item nav-link" href="/main">Home</a>
-            <a class="nav-item nav-link" href="{{ url_for('posts') }}">Blog</a>
-            <a class="nav-item nav-link" href="">About</a>
-          </div> 
-          <!-- Navbar Right Side -->
-          <div class="navbar-nav border-right mr-3 pr-3">
-            <a class="nav-item nav-link" href="{{ url_for('login') }}" target="_blank">Login</a>
-            <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
-          </div>
-
-          <input type="checkbox" name=" switch theme" id="switch-theme" aria-label="Toggle Dark Mode">
-        <label for="" id="dark-mode-toggle" ></label>
-        </div>
-      </nav>
+     {% block header %}
+     
+     {% endblock %}
       
-    </div>
-  </header>
-  <!-- header -->
-
-     <div class="section-header mt-3">
-      {% block header %}
-
-      {% endblock %}
-       
-     </div>
-    <main role="main" class="container main mt-1 pb-3">
-      <div class="row justify-content-center">
+    <main role="main" class="container main mt-1 pb-3 pt-4">
+      <div class="row">
         <div class="col-md-8">
-          <!-- Displaying the Flashed Messages on the pages -->
-          {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-            <ul class=flashes>
-              {% for category, message in messages %}
-              <div class="alert alert-{{category}}" role="alert">
-                {{ message }}
-              </div>
-              {% endfor %}
-            </ul>
-            {% endif %}
-          {% endwith %}
-          <!-- our main content container -->
-          {% block content %}
-
-           {% endblock %}
-          </div>
-        <div class="col-md-4">
-          <div class="content-section">
-            <h3>Media</h3>
-            <p class="text-muted h5">
-              You can put any information here you'd like.
-            </p>
-            <ul class="list-group">
-              <li class="list-group-item list-group-item-light drop-down">
-                Latest Posts
-              </li>
-              <li class="list-group-item list-group-item-light drop-down">
-                Announcements
-              </li>
-              <li class="list-group-item list-group-item-light">Calendars</li>
-              <li class="list-group-item list-group-item-light">etc</li>
-            </ul>
+          <div class="row justify-content-center">
+            <!-- <div class="col-md-8"> -->
+              <!-- Displaying the Flashed Messages on the pages -->
+              {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                <ul class=flashes>
+                  {% for category, message in messages %}
+                  <div class="alert alert-{{category}}" role="alert">
+                    {{ message }}
+                  </div>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+              {% endwith %}
+              <!-- our main content container -->
+              {% block content %}
+    
+               {% endblock %}
+          <!-- </div> -->
+        </div> 
+        </div>
+          <div class="col-md-4">
+            <div class="content-section">
+              <h3>Media</h3>
+              <p class="text-muted h5">
+                You can put any information here you'd like.
+              </p>
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light drop-down">
+                  Latest Posts
+                </li>
+                <li class="list-group-item list-group-item-light drop-down">
+                  Announcements
+                </li>
+                <li class="list-group-item list-group-item-light">Calendars</li>
+                <li class="list-group-item list-group-item-light">etc</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
     </main>
     <!--==========================
     Mobile Nav Section
@@ -160,8 +139,19 @@
     {% block scripts %} 
     
     {% endblock %}
+    <script src="{{ url_for('static', filename='lib/js/wow.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/js/jquery.min.js') }}" ></script>
     <!-- Main JS File -->
-    <script src="{{ url_for('static', filename='js/main.js') }}" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script type="text/javascript">
+      // When Window is loaded
+      $(window).on("click",function () {  
+        // Render the page on modern browser only.
+        if (renderPage) {
+          console.log("Page Loaded");
+        }
+      })
+    </script>
   </body>
 
 </html>
