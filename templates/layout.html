@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta lang="en-US" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
     <!-- Optimazing the website for mobile devices -->
     <meta name="handheldFriendly" content="true" />
     {% if title %}
@@ -11,7 +11,7 @@
     {% else %}
     <title>Flask Blog</title>
     {% endif %}
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui" />
     <meta  name="keywords" content="flask blog, Blog" />
     <meta content="" name="description" />
 
@@ -27,7 +27,7 @@
     A Not-For-Profit organization whose primary objective is to democratize AI education in Port Harcourt for free ."
     />
     <!-- Favicons -->
-    <link href="{{ url_for('static', filename='media/flask-icon.png') }}" rel="icon" />
+    <link type="image/png" href="{{ url_for('static', filename='media/logo3.png') }}" rel="shortcut icon" />
     <link href="{{url_for('static', filename = 'lib/animate/animate.min.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}" />
     <!-- Fonts && Icons -->
@@ -63,9 +63,9 @@
               <!-- Displaying the Flashed Messages on the pages -->
               {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
-                <ul class=flashes>
+                <ul class="flashes col-md-9">
                   {% for category, message in messages %}
-                  <div class="alert alert-{{category}}" role="alert">
+                  <div class="alert alert-{{category}} " role="alert">
                     {{ message }}
                   </div>
                   {% endfor %}
@@ -80,7 +80,7 @@
         </div> 
         </div>
           <div class="col-md-4">
-            <div class="content-section">
+            <div class="content-section wow fadeInLeft" data-wow-delay="0.2s">
               <h3>Media</h3>
               <p class="text-muted h5">
                 You can put any information here you'd like.

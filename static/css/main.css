@@ -523,6 +523,11 @@ h6 {
   width: 50%;
 }
 
+
+.blog-logo{
+  width:20px !important;
+  height: 20px !important;
+}
 /* Section with background
 --------------------------------*/
 
@@ -1237,6 +1242,10 @@ h6 {
   border-left: none;
   border-right: none;
   border-radius: 1.96px solid grey;
+}
+
+.form .form-control:focus,.form .form-control:active{
+  background: inherit;
 }
 
  /* .form input:focus {

@@ -12,7 +12,7 @@ class RegistrationForm(FlaskForm):
     username = StringField(
     'Usename',
     validators=[DataRequired(message="choose your username"), 
-    Length(min=5, max=12)],
+    Length(min=5, max=20)],
     description="Your Username")
     # Email Field
     email = StringField(
@@ -25,7 +25,7 @@ class RegistrationForm(FlaskForm):
     'Password',
     validators=[DataRequired(message="your password"),
     Length(
-        min=6, max=12, message='Your password must be a minimum of 6 - 12 charaters'),
+        min=6, max=16, message='Your password must be a minimum of 6 - 16 charaters'),
     EqualTo('confirm_password', message='Your Passwords must match')])
     # Password Confirmation Field
     confirm_password = PasswordField(
@@ -49,6 +49,6 @@ class LoginForm(FlaskForm):
     password = PasswordField(
     'New Password',
     validators=[DataRequired(message="your password"),
-    Length(min=6, max=12, message='Your password must be a minimum of 6 - 12 charaters')])
+    Length(min=6, max=16, message='Your password must be a minimum of 6 - 16 charaters')])
     remember = BooleanField('Remember Me',default='checked')
     submit = SubmitField('Log In')
