@@ -525,8 +525,8 @@ h6 {
 
 
 .blog-logo{
-  width:20px !important;
-  height: 20px !important;
+  width:40px !important;
+  height: 40px !important;
 }
 /* Section with background
 --------------------------------*/
@@ -1513,6 +1513,15 @@ h6 {
 }
 
 @media (max-width: 991px) {
+  /* #header {
+    height: 60px;
+    padding: 10px 0;
+  }
+
+  #header .logo h1 {
+    font-size: 28px;
+    padding: 8px 0;
+  } */
 
   #intro {
     padding: 140px 0 60px 0;
@@ -1572,11 +1581,20 @@ h6 {
   }
 }
 
-@media (max-width: 440px) {
+@media (max-width: 574px) {
   #intro {
     padding: 100px 0 20px 0;
   }
   p {
-    font-size: 1.8rem !important;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 374px) {
+  #intro {
+    padding: 100px 0 20px 0;
+  }
+  p {
+    font-size: 1.18rem;
   }
 }
