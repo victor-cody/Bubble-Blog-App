@@ -1,5 +1,7 @@
 (function ($) {
-  
+
+  'use strict'
+
   const scrollToTopButton = document.querySelector(".back-to-top");
 
 function headerScroll() {
@@ -28,8 +30,8 @@ function scrollToTop() {
   }
 }
 
-scrollToTopButton.addEventListener("click", (e) => {
-  e.preventDefault();
+scrollToTopButton.addEventListener("click", (event) => {
+  event.preventDefault();
   scrollToTop();
 });
 
@@ -40,6 +42,22 @@ window.addEventListener("scroll", () => {
 
  // Initiate the wowjs animation library
  new WOW().init();
+
+ document.querySelectorAll('.tooltip-demo')
+ .forEach(tooltip => new bootstrap.Tooltip(tooltip, {
+  selector: '[data-bs-toggle="tooltip"]'
+}))
+
+ document.querySelectorAll('[data-bs-toggle="popover"]')
+ .forEach(popup => new bootstrap.Popover(popup))
+
+ // Disable empty links
+ document.querySelectorAll('a[href="#"], a[href=""]')
+ .forEach( link => { 
+  link.setAttribute('href','javascript:void(0)')
+}
+ );
+
 
 
 // a dark Mode API
@@ -53,8 +71,8 @@ function changeIcon() {
     switchMode.classList.toggle("active");
 }
 
-function toggleTheme(e) {  
-    e.preventDefault()
+function toggleTheme(event) {  
+    event.preventDefault()
     let theme
     // check if dark mode is enabled
     if (prefersDarkScheme.matches) {
@@ -73,10 +91,10 @@ function toggleTheme(e) {
 }
 
 // EventListener for button to toggle btw dark and light mode 
-toggleModeButton.addEventListener("click", (e) => {
-    e.preventDefault();
+toggleModeButton.addEventListener("click", (event) => {
+    event.preventDefault();
     changeIcon()
-    toggleTheme(e)
+    toggleTheme(event)
     console.log("Toggled!");
   });
 
@@ -91,5 +109,15 @@ window.addEventListener("load", () => {
     document.body.classList.toggle("light-theme");
   }
 });
+
+    //Mobile nav
+
+    const mobile_nav = document.getElementById('mobile-nav'),
+        openMobileNav = document.querySelector('.mobile-nav-toggle')
+        
+    openMobileNav.addEventListener('click', (e) => {
+        e.preventDefault()
+        mobile_nav.classList.toggle('mobile-nav-slide');
+    });
 
 })(jQuery)
