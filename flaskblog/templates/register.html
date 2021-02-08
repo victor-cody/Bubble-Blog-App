@@ -2,6 +2,8 @@
 {% from 'components/blog_logo.html' import center_blog_logo %}
 
 {% block page_header %}
+<input type="checkbox" name=" switch theme" id="switch-theme" aria-label="Toggle Dark Mode">
+<label for="" id="dark-mode-toggle" class=" float-right mr-5"></label>
 {% endblock %}
 
 {%- block content %}
@@ -33,7 +35,7 @@
 
                 <div class="invalid-feedback">
                     {% for error in form.username.errors %}
-                    <p class="" aria-errormessage="{{error}}">{{ error }}</p>
+                    <p class="error" aria-errormessage="{{error}}">{{ error }}</p>
                     {% endfor %}
                 </div>
                 </div>
@@ -63,7 +65,7 @@
                     {{ form.email(class=" form-control form-control-md is-invalid ", placeholder="example@gmail.com") }}
                 <div class="invalid-feedback">
                     {% for error in form.email.errors %}
-                    <p class="" aria-errormessage="{{error}}">{{ error }}</p>
+                    <p class="error" aria-errormessage="{{error}}">{{ error }}</p>
                     {% endfor %}
                 </div>
                 </div>
@@ -92,7 +94,7 @@
                 {{ form.password(class=" form-control form-control-md  is-invalid ", placeholder="Ssh this is private") }}
                 <div class="invalid-feedback">
                     {% for error in form.password.errors %}
-                    <p class="" aria-errormessage="{{error}}">{{ error }}</p>
+                    <p class="error" aria-errormessage="{{error}}">{{ error }}</p>
                     {% endfor %}
                 </div>
                 </div>
@@ -121,7 +123,7 @@
                 {{ form.confirm_password(class=" form-control form-control-md is-invalid ", placeholder="Must match password") }}
                 <div class="invalid-feedback">
                     {% for error in form.confirm_password.errors %}
-                    <p class="" aria-errormessage="{{error}}">{{ error }}</p>
+                    <p class="error" aria-errormessage="{{error}}">{{ error }}</p>
                     {% endfor %}
                 </div>
                 </div>

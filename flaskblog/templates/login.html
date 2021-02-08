@@ -2,18 +2,20 @@
 {% from 'components/blog_logo.html' import center_blog_logo %}
 
 {% block page_header %}
+<input type="checkbox" name=" switch theme" id="switch-theme" aria-label="Toggle Dark Mode">
+<label for="" id="dark-mode-toggle" class=" float-right mr-5"></label>
 {% endblock %}
 
 
 {% block content %}
 
-<section class="content-section contact mb-3 col-lg-7 bg-white wow fadeInLeftBig" id="contact" data-wow-delay="0.25s">
+<section class="content-section contact mb-3 col-md-10 col-lg-7 bg-white wow fadeInLeftBig" id="contact" data-wow-delay="0.25s">
 
   {{ center_blog_logo() }}
   <form action="" method='POST' role="form" role="form" class="form row justify-content-center" aria-autocomplete="list">
 
     {{ form.hidden_tag() }}
-    <fieldset class="form-group col-lg-10">
+    <fieldset class="form-group col-md-10 col-lg-10">
 
       <legend class="border-bottom mb-3 pb-3 h4 text-center">
         Log In
@@ -32,7 +34,7 @@
                     {{ form.email(class=" form-control form-control-lg is-invalid ", placeholder="example@gmail.com") }}
                 <div class="invalid-feedback">
                     {% for error in form.email.errors %}
-                    <p class="" aria-errormessage="{{error}}">{{ error }}</p>
+                    <p class="error" aria-errormessage="{{error}}">{{ error }}</p>
                     {% endfor %}
                 </div>
                 </div>
@@ -65,7 +67,7 @@
 
         <div class="invalid-feedback" >
           {% for error in form.password.errors %}
-          <p class="" aria-errormessage="{{error}}">{{ error }}</p>
+          <p class="error" aria-errormessage="{{error}}">{{ error }}</p>
           {% endfor %}
         </div>
 
@@ -93,7 +95,8 @@
 
     <div class="form-group col-lg-10">
       {{ form.submit(class="btn btn-lg btn-outline-info px-5 rounded ") }}
-      <small class="text-muted ml-3 pl-3 border-left"><a href="" class="text-bold">Forgot Password ?</a></small>
+      <small class="text-muted ml-3 pl-3 border-left"><a href="" class="text-uppercase">Forgot Password
+          ?</a></small>
     </div>
 
   </form>

@@ -18,14 +18,14 @@
 #}
 
 {% block content %}
-<div class="col-md-8">\
+<div class="col-md-7 col-lg-7">
   <!-- Begin Articles -->
   {%- for article in posts %}
   <div class="">
-    <article class="card article-item  content-section filter-web wow fadeInUp bg-white mb-1" role="article"
+    <article class="card bg-light article-item  content-section  rounded filter-web wow fadeInUp bg-white mb-1" role="article"
       data-wow-delay="0.3s" role="article">
       <!-- Article Header Image -->
-      <figure role="figure card-img-top h-50">
+      <figure role="figure card-img-top">
         <a href="page-blog-detail.html">
           <img src="{{ url_for('static', filename='images/banner/banner-17.jpg')}}" class="img-fluid"
             alt="Blog Post pic" role="img">
@@ -33,18 +33,20 @@
       </figure>
       <!-- Article Body -->
       <div class="article-info card-body ">
-        <div class="d-flex align-items-center">
-          <a href="" class=" avatar mr-3">
-            <img src=" {{ url_for('static', filename='images/avatars/avatar3.jpg' ) }} "
-              alt="{{article.author}} profile picture" srcset="" class="icon" width="30" height="24" />
-          </a>
-          <h4 class="h4">
-            <span class="text-muted">By </span>
-            <a href="" class="text-success font-weight-bold" aria-labelledby="article author"> {{article.author}} </a>
-            <span class="text-muted mx-1 border-right"></span>
-            <span class="text-muted">Jan 10, 2020</span>
-          </h4>
-        </div>
+         <div class="d-flex justify-content-start align-items-center mb-1">
+           <!-- avatar -->
+           <div class="avatar mr-2">
+             <img src="{{url_for('static',filename = 'images/avatars/avatar3.jpg')}}"
+               class="rounded-circle img-fluid avatar icon"
+               width="40" height="40" alt="{{article.author}} profile picture">
+           </div>
+           <!--/ avatar -->
+           <div class="profile-user-info">
+             <h4 class="mb-2"> By <a href="" class="text-success font-weight-bold" aria-labelledby="article author">
+                 {{article.author}} </a></h6>
+               <span class="text-muted">12 Dec 2018 at 1:16 AM </span>
+           </div>
+         </div>
         <h4 class="card-title">
           <h3 class="blog-title-truncate text-body-heading font-weight-bold">{{article.title}}</h3>
         </h4>

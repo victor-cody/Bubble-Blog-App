@@ -48,8 +48,8 @@
 	Header
 	============================-->
 		{% block page_header %}
-			<header id="header" class="bd-header bg-light sticky fixed-top wow fadeInDown ">
-				<nav class=" main-nav navbar navbar-expand-md navbar-light" role="navigation">
+			<header id="header" class="bg-light sticky-top">
+				<nav class=" main-nav navbar navbar-expand-md navbar-light wow fadeInDown " role="navigation">
 					<button class="bg-dark navbar-toggler collapsed float-right mobile-nav-toggle" id="" type="button"
 						data-bs-toggle="collapse" data-toggle="collapse" data-target="#mobile-nav"
 						aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,7 +110,7 @@
 						{% with messages = get_flashed_messages(with_categories=true) %}
 						{% if messages %}
 						{% for category, message in messages %}
-						<div class=" mt-4 col-lg-9 alert alert-{{category}} alert-dismissible fade show" role="alert">
+						<div class=" mt-4 col-md-8 alert alert-{{category}} alert-dismissible fade show" role="alert">
 							{{ message }}
 							<button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">x</button>
 						</div>

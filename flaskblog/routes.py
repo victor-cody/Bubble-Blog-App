@@ -48,6 +48,7 @@ def login():
 @app.route("/logout")
 def logout():
 	logout_user()
+	flash(f' Logout Successful!', 'primary')
 	return redirect(url_for('home'))
 
 

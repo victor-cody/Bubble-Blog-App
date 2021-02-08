@@ -52,13 +52,7 @@ window.addEventListener("scroll", () => {
  .forEach(popup => new bootstrap.Popover(popup))
 
  // Disable empty links
- document.querySelectorAll('a[href="#"], a[href=""]')
- .forEach( link => { 
-  link.setAttribute('href','javascript:void(0)')
-}
- );
-
-
+$('a[href="#"], a[href=""]').attr('href', 'javascript:void(0)');
 
 // a dark Mode API
 const toggleModeButton = document.getElementById("dark-mode-toggle");
@@ -94,7 +88,9 @@ function toggleTheme(event) {
 toggleModeButton.addEventListener("click", (event) => {
     event.preventDefault();
     changeIcon()
-    toggleTheme(event)
+    setTimeout(function() {
+      toggleTheme(event)
+    }, 500);
     console.log("Toggled!");
   });
 
@@ -102,7 +98,9 @@ toggleModeButton.addEventListener("click", (event) => {
 window.addEventListener("load", () => {
   const currentTheme = localStorage.getItem("theme");
   if (currentTheme == "dark") {
-    document.body.classList.toggle("dark-theme");
+    setTimeout(function() {
+      document.body.classList.toggle("dark-theme");
+    }, 500);
     changeIcon()
   }
   else if  (currentTheme == "light") {
