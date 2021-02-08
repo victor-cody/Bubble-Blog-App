@@ -1245,7 +1245,7 @@ h6 {
 	background: #101523 !important;
 	filter: invert(0) hue-rotate(0deg) blur(0) !important;
 
-	*:not(.alert, .error) {
+	*:not(.alert, .alert *,.error) {
 		color: $darkLayoutText !important;
 		filter: invert(0) hue-rotate(0deg) blur(0) !important;
 	} 
