@@ -1,0 +1,567 @@
+{% extends "index.html" %}
+
+{% block header %}
+<section class="header">
+  {% if user_words %}
+  <h1 class="intro-text">
+    <span class="display-3">Welcome</span>,
+    <span class="txt-type" data-wait="3000" data-words="{{ user_words }}"></span>
+  </h1>
+  {% else %}
+  <h1 class="intro-text">
+    <span class="display-3">Welcome</span>,
+    <span class="txt-type" data-wait="3000"
+      data-words='[" Professional Site for Writers", " For Content Creators that Love to share", "Write and Deploy For YouTube Instructors ", "..Python Developers"]'></span>
+  </h1>
+  {% endif %}
+</section>
+{% endblock %}
+
+{% block content %}
+<section id="user-profile" class="col-lg-12">
+  <!-- profile header -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card profile-header mb-2">
+        <!-- profile cover photo -->
+        <img class="card-img-top" src="{{url_for('static',filename = 'images/profile/user-uploads/timeline.jpg')}}"
+          alt="{{user.username}} Profile banner">
+        <!--/ profile cover photo -->
+
+        <div class="position-relative">
+          <!-- profile picture -->
+          <div class="profile-img-container d-flex align-items-center">
+            <div class="profile-img">
+              <img src="{{url_for('static',filename = 'images/avatars/avatar3.jpg')}}" class="rounded img-fluid avatar"
+                alt="{{user.username}} Profile Image">
+            </div>
+            <!-- profile title -->
+            <div class="profile-title ml-3">
+              <h2 class="text-white">{{user.username}}</h2>
+              <h3 class="text-white">{{user.email}}</h3>
+              <p class="text-white">UI/UX Designer</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- tabs pill -->
+        <div class="profile-header-nav">
+          <!-- navbar -->
+          <nav class="navbar navbar-expand-md navbar-light justify-content-end justify-content-md-between w-100">
+            <button class="btn btn-icon navbar-toggler waves-effect waves-float waves-light" type="button"
+              data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-align-justify font-medium-5">
+                <line x1="21" y1="10" x2="3" y2="10"></line>
+                <line x1="21" y1="6" x2="3" y2="6"></line>
+                <line x1="21" y1="14" x2="3" y2="14"></line>
+                <line x1="21" y1="18" x2="3" y2="18"></line>
+              </svg>
+            </button>
+
+            <!-- collapse  -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <div class="profile-tabs d-flex justify-content-between flex-wrap mt-1 mt-md-0">
+                <ul class="nav nav-pills mb-0">
+                  <li class="nav-item">
+                    <a class="nav-link font-weight-bold active" href="javascript:void(0)">
+                      <span class="d-none d-md-block">Feed</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-rss d-block d-md-none">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="javascript:void(0)">
+                      <span class="d-none d-md-block">About</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-info d-block d-md-none">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="javascript:void(0)">
+                      <span class="d-none d-md-block">Photos</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-image d-block d-md-none">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="javascript:void(0)">
+                      <span class="d-none d-md-block">Friends</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-users d-block d-md-none">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+                <!-- edit button -->
+                <button class="btn btn-primary waves-effect waves-float waves-light">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-edit d-block d-md-none">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                  </svg>
+                  <span class="font-weight-bold d-none d-md-block">Edit</span>
+                </button>
+              </div>
+            </div>
+            <!--/ collapse  -->
+          </nav>
+          <!--/ navbar -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ profile header -->
+
+  <!-- profile info section -->
+  <section id="profile-info">
+    <div class="row">
+      <!-- left profile info section -->
+      <div class="col-lg-3 col-12 ">
+        <!-- about -->
+        <div class="card">
+          <div class="card-body">
+            <h5 class="mb-75">About</h5>
+            <p class="card-text">
+              Tart I love sugar plum I love oat cake. Sweet ⭐️ roll caramels I love jujubes. Topping cake wafer.
+            </p>
+            <div class="mt-2">
+              <h5 class="mb-75">Joined:</h5>
+              <p class="card-text">November 15, 2015</p>
+            </div>
+            <div class="mt-2">
+              <h5 class="mb-75">Lives:</h5>
+              <p class="card-text">New York, USA</p>
+            </div>
+            <div class="mt-2">
+              <h5 class="mb-75">Email:</h5>
+              <p class="card-text">bucketful@fiendhead.org</p>
+            </div>
+            <div class="mt-2">
+              <h5 class="mb-50">Website:</h5>
+              <p class="card-text mb-0">www.pixinvent.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+        <!--/ about -->
+
+        <!-- center profile info section -->
+        <div class="col-lg-6 col-12">
+          <!-- post 1 -->
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex justify-content-start align-items-center mb-1">
+                <!-- avatar -->
+                <div class="avatar mr-1">
+                  <img src="{{url_for('static',filename = 'images/avatars/avatar3.jpg')}}" class="rounded img-fluid avatar"
+                    width="30" height="30"
+                    alt="{{user.username}} Profile Image">
+                </div>
+                <!--/ avatar -->
+                <div class="profile-user-info">
+                  <h6 class="mb-0">Leeanna Alvord</h6>
+                  <small class="text-muted">12 Dec 2018 at 1:16 AM</small>
+                </div>
+              </div>
+              <p class="card-text">
+                Wonderful Machine· A well-written bio allows viewers to get to know a photographer beyond the work. This
+                can make the difference when presenting to clients who are looking for the perfect fit.
+              </p>
+              <!-- post img -->
+              <img src="{{url_for('static',filename = 'images/avatars/avatar3.jpg')}}" class="rounded img-fluid avatar"
+                    width="30" height="30"
+                    alt="{{user.username}} Profile Image">
+                                        <!--/ post i') }}mg -->
+
+                                        <!-- like share -->
+                                        <div class=" row d-flex justify-content-start align-items-center flex-wrap
+                pb-50">
+              <div class="col-sm-6 d-flex justify-content-between justify-content-sm-start mb-2">
+                <a href="javascript:void(0)" class="d-flex align-items-center text-muted text-nowrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-heart profile-likes font-medium-3 mr-50">
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                    </path>
+                  </svg>
+                  <span>1.25k</span>
+                </a>
+
+                <!-- avatar group with tooltip -->
+                <div class="d-flex align-items-center">
+                  <div class="avatar-group ml-1">
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom"
+                      data-original-title="Trina Lynes" class="avatar pull-up">
+                      <img src="{{url_for('static', filename = 'images/portrait/small/avatar-s-1.jpg"') }} alt=" Avatar"
+                        height="26" width="26">
+                    </div>
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom"
+                      data-original-title="Lilian Nenez" class="avatar pull-up">
+                      <img src="{{url_for('static', filename = 'images/portrait/small/avatar-s-2.jpg"') }} alt=" Avatar"
+                        height="26" width="26">
+                    </div>
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom"
+                      data-original-title="Alberto Glotzbach" class="avatar pull-up">
+                      <img src="{{url_for('static', filename = 'images/portrait/small/avatar-s-3.jpg"') }} alt=" Avatar"
+                        height="26" width="26">
+                    </div>
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom"
+                      data-original-title="George Nordic" class="avatar pull-up">
+                      <img src="{{url_for('static', filename = 'images/portrait/small/avatar-s-5.jpg"') }} alt=" Avatar"
+                        height="26" width="26">
+                    </div>
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom"
+                      data-original-title="Vinnie Mostowy" class="avatar pull-up">
+                      <img src="{{url_for('static', filename = 'images/portrait/small/avatar-s-4.jpg"') }} alt=" Avatar"
+                        height="26" width="26">
+                    </div>
+                  </div>
+                  <a href="javascript:void(0)" class="text-muted text-nowrap ml-50">+140 more</a>
+                </div>
+                <!-- avatar group with tooltip -->
+              </div>
+
+              <!-- share and like count and icons -->
+              <div class="col-sm-6 d-flex justify-content-between justify-content-sm-end align-items-center mb-2">
+                <a href="javascript:void(0)" class="text-nowrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-message-square text-body font-medium-3 mr-50">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  </svg>
+                  <span class="text-muted mr-1">1.25k</span>
+                </a>
+
+                <a href="javascript:void(0)" class="text-nowrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-share-2 text-body font-medium-3 mx-50">
+                    <circle cx="18" cy="5" r="3"></circle>
+                    <circle cx="6" cy="12" r="3"></circle>
+                    <circle cx="18" cy="19" r="3"></circle>
+                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                  </svg>
+                  <span class="text-muted">1.25k</span>
+                </a>
+              </div>
+              <!-- share and like count and icons -->
+            </div>
+            <!-- like share -->
+
+            <!-- comments -->
+            <div class="d-flex align-items-start mb-1">
+              <div class="avatar mt-25 mr-75">
+                <img src="{{url_for('static',filename = 'images/avatars/avatar3.jpg')}}" class="avatar img-fluid" width="30" height="30"
+                  alt="{{user.username}} Profile Image">
+              </div>
+              <div class="profile-user-info w-100">
+                <div class="d-flex align-items-center justify-content-between">
+                  <h6 class="mb-0">Kitty Allanson</h6>
+                  <a href="javascript:void(0)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="feather feather-heart text-body font-medium-3">
+                      <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                      </path>
+                    </svg>
+                    <span class="align-middle text-muted">34</span>
+                  </a>
+                </div>
+                <small>Easy &amp; smart fuzzy search🕵🏻 functionality which enables users to search quickly.</small>
+              </div>
+            </div>
+            <div class="d-flex align-items-start mb-1">
+              <div class="avatar mt-25 mr-75">
+                <img src="{{url_for('static', filename = 'images/portrait/small/avatar-s-8.jpg" alt="Av') }}atar"
+                  height="34" width="34">
+              </div>
+              <div class="profile-user-info w-100">
+                <div class="d-flex align-items-center justify-content-between">
+                  <h6 class="mb-0">Jackey Potter</h6>
+                  <a href="javascript:void(0)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="feather feather-heart profile-likes font-medium-3">
+                      <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                      </path>
+                    </svg>
+                    <span class="align-middle text-muted">61</span>
+                  </a>
+                </div>
+                <small>
+                  Unlimited color🖌 options allows you to set your application color as per your branding 🤪.
+                </small>
+              </div>
+            </div>
+            <!--/ comments -->
+
+            <!-- comment box -->
+            <fieldset class="form-label-group mb-75">
+              <textarea class="form-control" id="label-textarea" rows="3" placeholder="Add Comment"></textarea>
+              <label for="label-textarea">Add Comment</label>
+            </fieldset>
+            <!--/ comment box -->
+            <button type="button" class="btn btn-sm btn-primary waves-effect waves-float waves-light">Post
+              Comment</button>
+          </div>
+        <!--/ post 1 -->
+
+        <!-- post 2 -->
+        <div class="card">
+          <div class="card-body">
+            <!-- avatar image and title -->
+            <div class="d-flex justify-content-start align-items-center mb-1">
+              <div class="avatar mr-1">
+                <img src="{{url_for('static', filename = 'images/portrait/small/avatar-s-22.jpg" alt="a') }}vatar img"
+                  height="50" width="50">
+              </div>
+              <div class="profile-user-info">
+                <h6 class="mb-0">Rosa Walters</h6>
+                <small class="text-muted">11 Dec 2019 at 1:16 AM</small>
+              </div>
+            </div>
+            <!--/ avatar image and title -->
+            <p class="card-text">
+              Wonderful Machine· A well-written bio allows viewers to get to know a photographer beyond the work. This
+              can make the difference when presenting to clients who are looking for the perfect fit.
+            </p>
+            <!-- post img -->
+            <img class="img-fluid rounded mb-75"
+              src="{{url_for('static', filename = 'images/profile/post-media/25.jpg') }}">
+            <!--/ post img -->
+
+            <!-- like share -->
+            <div class="row d-flex justify-content-start align-items-center flex-wrap pb-50">
+              <div class="col-sm-6 d-flex justify-content-between justify-content-sm-start mb-2">
+                <a href="javascript:void(0)" class="d-flex align-items-center text-muted text-nowrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-heart profile-likes font-medium-3 mr-50">
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                    </path>
+                  </svg>
+                  <span>1.25k</span>
+                </a>
+
+                <!-- avatar group with tooltip -->
+                <div class="d-flex align-items-center">
+                  <div class="avatar-group ml-1">
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom"
+                      data-original-title="Trina Lynes" class="avatar pull-up">
+                      <img src="{{url_for('static', filename = 'images/portrait/small/avatar-s-1.jpg') }}" alt="Avatar"
+                        height="26" width="26">
+                    </div>
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom"
+                      data-original-title="Lilian Nenez" class="avatar pull-up">
+                      <img src="{{url_for('static', filename = 'images/portrait/small/avatar-s-2.jpg') }}" alt="Avatar"
+                        height="26" width="26">
+                    </div>
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom"
+                      data-original-title="Alberto Glotzbach" class="avatar pull-up">
+                      <img src="{{url_for('static', filename = 'images/portrait/small/avatar-s-3.jpg') }}" alt="Avatar"
+                        height="26" width="26">
+                    </div>
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom"
+                      data-original-title="George Nordic" class="avatar pull-up">
+                      <img src="{{url_for('static', filename = 'images/profile/post-media/25.jpg') }}"
+                        height="26" width="26">
+                    </div>
+                    <div data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom"
+                      data-original-title="Vinnie Mostowy" class="avatar pull-up">
+                      <img src="{{url_for('static', filename = 'images/profile/post-media/2.jpg') }}"
+                        height="26" width="26">
+                    </div>
+                  </div>
+                  <a href="javascript:void(0)" class="text-muted text-nowrap ml-50">+271 more</a>
+                </div>
+                <!-- avatar group with tooltip -->
+              </div>
+
+              <!-- share and like count and icons -->
+              <div class="col-sm-6 d-flex justify-content-between justify-content-sm-end align-items-center mb-2">
+                <a href="javascript:void(0)" class="text-nowrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-message-square text-body font-medium-3 mr-50">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  </svg>
+                  <span class="text-muted mr-1">1.25k</span>
+                </a>
+
+                <a href="javascript:void(0)" class="text-nowrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-share-2 text-body font-medium-3 mx-50">
+                    <circle cx="18" cy="5" r="3"></circle>
+                    <circle cx="6" cy="12" r="3"></circle>
+                    <circle cx="18" cy="19" r="3"></circle>
+                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                  </svg>
+                  <span class="text-muted">1.25k</span>
+                </a>
+              </div>
+              <!-- share and like count and icons -->
+            </div>
+            <!-- like share -->
+
+            <!-- comments -->
+            <div class="d-flex align-items-start mb-1">
+              <div class="avatar mt-25 mr-50">
+                <img src="{{url_for('static', filename = 'images/profile/user-uploads/user-06.jpg') }}"
+                  height="34" width="34">
+              </div>
+              <div class="profile-user-info w-100">
+                <div class="d-flex align-items-center justify-content-between">
+                  <h6 class="mb-0">Kitty Allanson</h6>
+                  <a href="javascript:void(0)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="feather feather-heart text-body font-medium-3">
+                      <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                      </path>
+                    </svg>
+                    <span class="align-middle text-muted">34</span>
+                  </a>
+                </div>
+                <small>Easy &amp; smart fuzzy search🕵🏻 functionality which enables users to search quickly. </small>
+              </div>
+            </div>
+            <!--/ comments -->
+
+            <!-- comment text area -->
+            <fieldset class="form-label-group mb-75">
+              <textarea class="form-control" id="label-textarea2" rows="3" placeholder="Add Comment"></textarea>
+              <label for="label-textarea2">Add Comment</label>
+            </fieldset>
+            <!--/ comment text area -->
+            <button type="button" class="btn btn-sm btn-primary waves-effect waves-float waves-light">Post
+              Comment</button>
+          </div>
+        </div>
+        <!--/ post 2 -->
+
+      </div>
+        </div>
+      <!--/ center profile info section -->
+
+      <!-- right profile info section -->
+      <div class="col-lg-3 col-12">
+        <!-- latest profile pictures -->
+        <div class="card">
+          <div class="card-body">
+            <h5 class="mb-0">Latest Photos</h5>
+            <div class="row">
+              <div class="col-md-4 col-6 profile-latest-img">
+                <a href="javascript:void(0)">
+                  <img src="{{url_for('static', filename = 'images/profile/user-uploads/user-13.jpg') }}"
+                    class="img-fluid rounded" alt="avatar img">
+                </a>
+              </div>
+              <div class="col-md-4 col-6 profile-latest-img">
+                <a href="javascript:void(0)">
+                  <img src="{{url_for('static', filename = 'images/profile/user-uploads/user-02.jpg') }}"
+                    class="img-fluid rounded" alt="avatar img">
+                </a>
+              </div>
+              <div class="col-md-4 col-6 profile-latest-img">
+                <a href="javascript:void(0)">
+                  <img src="{{url_for('static', filename = 'images/profile/user-uploads/user-03.jpg') }}"
+                    class="img-fluid rounded" alt="avatar img">
+                </a>
+              </div>
+              <div class="col-md-4 col-6 profile-latest-img">
+                <a href="javascript:void(0)">
+                  <img src="{{url_for('static', filename = 'images/profile/user-uploads/user-04.jpg') }}"
+                    class="img-fluid rounded" alt="avatar img">
+                </a>
+              </div>
+              <div class="col-md-4 col-6 profile-latest-img">
+                <a href="javascript:void(0)">
+                  <img src="{{url_for('static', filename = 'images/profile/user-uploads/user-05.jpg') }}"
+                    class="img-fluid rounded" alt="avatar img">
+                </a>
+              </div>
+              <div class="col-md-4 col-6 profile-latest-img">
+                <a href="javascript:void(0)">
+                  <img src="{{url_for('static', filename = 'images/profile/user-uploads/user-06.jpg') }}"
+                    class="img-fluid rounded" alt="avatar img">
+                </a>
+              </div>
+              <div class="col-md-4 col-6 profile-latest-img">
+                <a href="javascript:void(0)">
+                  <img src="{{url_for('static', filename = 'images/profile/user-uploads/user-07.jpg') }}"
+                    class="img-fluid rounded" alt="avatar img">
+                </a>
+              </div>
+              <div class="col-md-4 col-6 profile-latest-img">
+                <a href="javascript:void(0)">
+                  <img src="{{url_for('static', filename = 'images/profile/user-uploads/user-08.jpg') }}"
+                    class="img-fluid rounded" alt="avatar img">
+                </a>
+              </div>
+              <div class="col-md-4 col-6 profile-latest-img">
+                <a href="javascript:void(0)">
+                  <img src="{{url_for('static', filename = 'images/profile/user-uploads/user-09.jpg') }}"class="img-fluid rounded" alt="avatar img">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/ latest profile pictures -->
+
+      </div>
+    </div>
+      <!--/ right profile info section -->
+    
+        <!-- reload button -->
+        <div class="row justify-content-center">
+          <div class="col-12 text-center">
+            <button type="button"
+              class="btn btn-sm btn-primary block-element border-0 mb-1 waves-effect waves-float waves-light">Load
+              More</button>
+          </div>
+        </div>
+    <!--/ reload button -->
+  </section>
+  <!--/ profile info section -->
+
+{% endblock %}
+
+{% block aside %}
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/type_writer.js') }}" crossorigin="anonymous"></script>
+{% endblock %}
