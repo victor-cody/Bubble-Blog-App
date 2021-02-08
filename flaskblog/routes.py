@@ -1,5 +1,5 @@
 from flask import flash, redirect, render_template, request, session, url_for
-from flask_login import login_user , logout_user, current_user
+from flask_login import login_user , logout_user, login_required , current_user
 from flaskblog import app, bcrypt, db
 from flaskblog.forms import LoginForm, RegistrationForm
 from flaskblog.models import User, Post
@@ -37,15 +37,16 @@ def login():
 		user = User.query.filter_by(email = form.email.data).first()
 		if user and bcrypt.check_password_hash(user.password, form.password.data):
 			login_user( user,form.remember.data)
-			session["logedin"] = True
+			next_page = request.args.get('next')
 			flash(f'Login Successful, Welcome {user.username} ', 'primary')
-			return redirect(url_for('posts', posts=blog_posts, title="Posts Section"))
+			return redirect(next_page) if next_page else redirect(url_for('home'))
 		else:
 			flash('Login Unsuccessful, Please check that your email and password are correct', 'danger')
 	return render_template('login.html', title='Login Page', form=form)
 
 
 @app.route("/logout")
+@login_required
 def logout():
 	logout_user()
 	flash(f' Logout Successful!', 'primary')
@@ -53,6 +54,7 @@ def logout():
 
 
 @app.route("/account")
+@login_required
 def account():
 	user = current_user
 	return render_template("user_account.html",user=user, title = f"{user.username} Account Page" )
