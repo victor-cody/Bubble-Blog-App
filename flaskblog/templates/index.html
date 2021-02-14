@@ -83,7 +83,8 @@
 								</div>
 								<span class="avatar drop-down" data-bs-toggle="tooltip" data-bs-placement="bottom" title=""
 									data-bs-original-title="Ikechukwu Victor">
-									<img class="avatar round" src="../../static/images/avatars/avatar3.jpg" alt="avatar"
+									<img class="avatar rounded-circle" src="../../static/images/avatars/avatar3.jpg"
+										alt="avatar"
 										height="35" width="35">
 									<span class="avatar-status-online"></span>
 								</span>
@@ -94,7 +95,7 @@
 							{% endif %}
 						</div>
 
-						<input type="checkbox" name=" switch theme" id="switch-theme" aria-label="Toggle Dark Mode">
+						<input type="checkbox" name=" switch theme" id="switch-theme" aria-label="Toggle Dark Mode" class="position-absolute" style="left:-90%;">
 						<label for="" id="dark-mode-toggle"></label>
 					</div>
 
@@ -110,7 +111,7 @@
 						{% with messages = get_flashed_messages(with_categories=true) %}
 						{% if messages %}
 						{% for category, message in messages %}
-						<div class=" mt-4 col-md-8 alert alert-{{category}} alert-dismissible fade show" role="alert">
+						<div class=" mt-4 col-md-12 alert alert-{{category}} alert-dismissible fade show" role="alert">
 							{{ message }}
 							<button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">x</button>
 						</div>
@@ -219,6 +220,11 @@
 	============================-->
 		<nav id="mobile-nav" class="mobile-nav navbar bg-light navbar-light " role="navigation">
 			<ul class="" style="touch-action: pan-y" id="">
+			<li>
+				<input type="checkbox" name=" switch theme" id="switch-theme" class="position-absolute"
+					style="left:-10%;" aria-label="Toggle Dark Mode">
+				<label for="" id="dark-mode-toggle"></label>
+			</li>
 				<li class="menu-active menu-item-active"><a class="text-dark" href="#intro">Home</a></li>
 				<li class=""><a class="text-dark" href="#about">About Us</a></li>
 				<li class="menu-has-children">

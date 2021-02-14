@@ -72,6 +72,11 @@ def posts():
 	return render_template('blog_posts.html', posts=blog_posts, title="Posts Section")
 
 
+@app.route("/post/new/")
+@login_required
+def new_post():
+	return render_template('publish_post.html', title = "New Post")
+
 @app.route("/about/")
 def about():
 	return "<div> <h1> This is the <u>about<u> Page </h1> </div>"

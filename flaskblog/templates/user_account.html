@@ -30,9 +30,10 @@
 
         <div class="position-relative">
           <!-- profile picture -->
-          <div class="profile-img-container d-flex align-items-center">
+          <div class="profile-img-container border-none d-flex align-items-center justify-content-around">
             <div class="profile-img">
-              <img src="{{url_for('static',filename = 'images/avatars/avatar3.jpg')}}" class="rounded img-fluid avatar"
+              <img src="{{url_for('static',filename = 'images/avatars/avatar3.jpg')}}"
+                class=" img-fluid avatar rounded-circle"
                 alt="{{user.username}} Profile Image">
             </div>
             <!-- profile title -->
@@ -47,8 +48,8 @@
         <!-- tabs pill -->
         <div class="profile-header-nav">
           <!-- navbar -->
-          <nav class="navbar navbar-expand-md navbar-light justify-content-end justify-content-md-between w-100">
-            <button class="btn btn-icon navbar-toggler waves-effect waves-float waves-light" type="button"
+          <nav class="navbar navbar-expand-md navbar-light justify-content-center justify-content-lg-around w-100">
+            <button class="btn btn-icon navbar-toggler" type="button"
               data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
               aria-expanded="false" aria-label="Toggle navigation">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -66,63 +67,28 @@
               <div class="profile-tabs d-flex justify-content-between flex-wrap mt-1 mt-md-0">
                 <ul class="nav nav-pills mb-0">
                   <li class="nav-item">
-                    <a class="nav-link font-weight-bold active" href="javascript:void(0)">
+                    <a class="nav-link font-weight-bold active btn text-capitalize" href="">
                       <span class="d-none d-md-block">Feed</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="feather feather-rss d-block d-md-none">
-                        <path d="M4 11a9 9 0 0 1 9 9"></path>
-                        <path d="M4 4a16 16 0 0 1 16 16"></path>
-                        <circle cx="5" cy="19" r="1"></circle>
-                      </svg>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="javascript:void(0)">
+                    <a class="nav-link font-weight-bold btn text-capitalize" href="">
                       <span class="d-none d-md-block">About</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="feather feather-info d-block d-md-none">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="12" y1="16" x2="12" y2="12"></line>
-                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                      </svg>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="javascript:void(0)">
+                    <a class="nav-link font-weight-bold btn text-capitalize" href="">
                       <span class="d-none d-md-block">Photos</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="feather feather-image d-block d-md-none">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                        <polyline points="21 15 16 10 5 21"></polyline>
-                      </svg>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="javascript:void(0)">
+                    <a class="nav-link font-weight-bold btn text-capitalize" href="">
                       <span class="d-none d-md-block">Friends</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="feather feather-users d-block d-md-none">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                      </svg>
                     </a>
                   </li>
                 </ul>
                 <!-- edit button -->
-                <button class="btn btn-primary waves-effect waves-float waves-light">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="feather feather-edit d-block d-md-none">
-                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                  </svg>
+                <button class="btn btn-primary">
                   <span class="font-weight-bold d-none d-md-block">Edit</span>
                 </button>
               </div>
@@ -144,24 +110,24 @@
         <!-- about -->
         <div class="card">
           <div class="card-body">
-            <h5 class="mb-75">About</h5>
+            <h5 class="mb-1">About</h5>
             <p class="card-text">
               Tart I love sugar plum I love oat cake. Sweet ⭐️ roll caramels I love jujubes. Topping cake wafer.
             </p>
             <div class="mt-2">
-              <h5 class="mb-75">Joined:</h5>
+              <h5 class="mb-1">Joined:</h5>
               <p class="card-text">November 15, 2015</p>
             </div>
             <div class="mt-2">
-              <h5 class="mb-75">Lives:</h5>
+              <h5 class="mb-1">Lives:</h5>
               <p class="card-text">New York, USA</p>
             </div>
             <div class="mt-2">
-              <h5 class="mb-75">Email:</h5>
-              <p class="card-text">bucketful@fiendhead.org</p>
+              <h5 class="mb-1">Email:</h5>
+              <p class="card-text">{{user.email}}</p>
             </div>
             <div class="mt-2">
-              <h5 class="mb-50">Website:</h5>
+              <h5 class="mb-2">Website:</h5>
               <p class="card-text mb-0">www.pixinvent.com</p>
             </div>
           </div>
@@ -177,7 +143,7 @@
               <div class="d-flex justify-content-start align-items-center mb-1">
                 <!-- avatar -->
                 <div class="avatar mr-1">
-                  <img src="{{url_for('static',filename = 'images/avatars/avatar3.jpg')}}" class="rounded img-fluid avatar"
+                  <img src="{{url_for('static',filename = 'images/avatars/avatar3.jpg')}}" class="rounded-circle img-fluid avatar"
                     width="30" height="30"
                     alt="{{user.username}} Profile Image">
                 </div>
@@ -192,7 +158,7 @@
                 can make the difference when presenting to clients who are looking for the perfect fit.
               </p>
               <!-- post img -->
-              <img src="{{url_for('static',filename = 'images/avatars/avatar3.jpg')}}" class="rounded img-fluid avatar"
+              <img src="{{url_for('static',filename = 'images/banner/02.jpg')}}" class=" img-fluid avatar"
                     width="30" height="30"
                     alt="{{user.username}} Profile Image">
                                         <!--/ post i') }}mg -->
@@ -201,7 +167,7 @@
                                         <div class=" row d-flex justify-content-start align-items-center flex-wrap
                 pb-50">
               <div class="col-sm-6 d-flex justify-content-between justify-content-sm-start mb-2">
-                <a href="javascript:void(0)" class="d-flex align-items-center text-muted text-nowrap">
+                <a href="" class="d-flex align-items-center text-muted text-nowrap">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="feather feather-heart profile-likes font-medium-3 mr-50">
@@ -241,14 +207,14 @@
                         height="26" width="26">
                     </div>
                   </div>
-                  <a href="javascript:void(0)" class="text-muted text-nowrap ml-50">+140 more</a>
+                  <a href="" class="text-muted text-nowrap ml-50">+140 more</a>
                 </div>
                 <!-- avatar group with tooltip -->
               </div>
 
               <!-- share and like count and icons -->
               <div class="col-sm-6 d-flex justify-content-between justify-content-sm-end align-items-center mb-2">
-                <a href="javascript:void(0)" class="text-nowrap">
+                <a href="" class="text-nowrap">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="feather feather-message-square text-body font-medium-3 mr-50">
@@ -257,7 +223,7 @@
                   <span class="text-muted mr-1">1.25k</span>
                 </a>
 
-                <a href="javascript:void(0)" class="text-nowrap">
+                <a href="" class="text-nowrap">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="feather feather-share-2 text-body font-medium-3 mx-50">
@@ -283,7 +249,7 @@
               <div class="profile-user-info w-100">
                 <div class="d-flex align-items-center justify-content-between">
                   <h6 class="mb-0">Kitty Allanson</h6>
-                  <a href="javascript:void(0)">
+                  <a href="">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                       class="feather feather-heart text-body font-medium-3">
@@ -305,7 +271,7 @@
               <div class="profile-user-info w-100">
                 <div class="d-flex align-items-center justify-content-between">
                   <h6 class="mb-0">Jackey Potter</h6>
-                  <a href="javascript:void(0)">
+                  <a href="">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                       class="feather feather-heart profile-likes font-medium-3">
@@ -354,14 +320,14 @@
               can make the difference when presenting to clients who are looking for the perfect fit.
             </p>
             <!-- post img -->
-            <img class="img-fluid rounded mb-75"
+            <img class="img-fluid mb-75"
               src="{{url_for('static', filename = 'images/profile/post-media/25.jpg') }}">
             <!--/ post img -->
 
             <!-- like share -->
             <div class="row d-flex justify-content-start align-items-center flex-wrap pb-50">
               <div class="col-sm-6 d-flex justify-content-between justify-content-sm-start mb-2">
-                <a href="javascript:void(0)" class="d-flex align-items-center text-muted text-nowrap">
+                <a href="" class="d-flex align-items-center text-muted text-nowrap">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="feather feather-heart profile-likes font-medium-3 mr-50">
@@ -401,14 +367,14 @@
                         height="26" width="26">
                     </div>
                   </div>
-                  <a href="javascript:void(0)" class="text-muted text-nowrap ml-50">+271 more</a>
+                  <a href="" class="text-muted text-nowrap ml-50">+271 more</a>
                 </div>
                 <!-- avatar group with tooltip -->
               </div>
 
               <!-- share and like count and icons -->
               <div class="col-sm-6 d-flex justify-content-between justify-content-sm-end align-items-center mb-2">
-                <a href="javascript:void(0)" class="text-nowrap">
+                <a href="" class="text-nowrap">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="feather feather-message-square text-body font-medium-3 mr-50">
@@ -417,7 +383,7 @@
                   <span class="text-muted mr-1">1.25k</span>
                 </a>
 
-                <a href="javascript:void(0)" class="text-nowrap">
+                <a href="" class="text-nowrap">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="feather feather-share-2 text-body font-medium-3 mx-50">
@@ -443,7 +409,7 @@
               <div class="profile-user-info w-100">
                 <div class="d-flex align-items-center justify-content-between">
                   <h6 class="mb-0">Kitty Allanson</h6>
-                  <a href="javascript:void(0)">
+                  <a href="">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                       class="feather feather-heart text-body font-medium-3">
@@ -483,56 +449,56 @@
             <h5 class="mb-0">Latest Photos</h5>
             <div class="row">
               <div class="col-md-4 col-6 profile-latest-img">
-                <a href="javascript:void(0)">
+                <a href="">
                   <img src="{{url_for('static', filename = 'images/profile/user-uploads/user-13.jpg') }}"
-                    class="img-fluid rounded" alt="avatar img">
+                    class="img-fluid rounded-circle" alt="avatar img">
                 </a>
               </div>
               <div class="col-md-4 col-6 profile-latest-img">
-                <a href="javascript:void(0)">
+                <a href="">
                   <img src="{{url_for('static', filename = 'images/profile/user-uploads/user-02.jpg') }}"
-                    class="img-fluid rounded" alt="avatar img">
+                    class="img-fluid rounded-circle" alt="avatar img">
                 </a>
               </div>
               <div class="col-md-4 col-6 profile-latest-img">
-                <a href="javascript:void(0)">
+                <a href="">
                   <img src="{{url_for('static', filename = 'images/profile/user-uploads/user-03.jpg') }}"
-                    class="img-fluid rounded" alt="avatar img">
+                    class="img-fluid rounded-circle" alt="avatar img">
                 </a>
               </div>
               <div class="col-md-4 col-6 profile-latest-img">
-                <a href="javascript:void(0)">
+                <a href="">
                   <img src="{{url_for('static', filename = 'images/profile/user-uploads/user-04.jpg') }}"
-                    class="img-fluid rounded" alt="avatar img">
+                    class="img-fluid rounded-circle" alt="avatar img">
                 </a>
               </div>
               <div class="col-md-4 col-6 profile-latest-img">
-                <a href="javascript:void(0)">
+                <a href="">
                   <img src="{{url_for('static', filename = 'images/profile/user-uploads/user-05.jpg') }}"
-                    class="img-fluid rounded" alt="avatar img">
+                    class="img-fluid rounded-circle" alt="avatar img">
                 </a>
               </div>
               <div class="col-md-4 col-6 profile-latest-img">
-                <a href="javascript:void(0)">
+                <a href="">
                   <img src="{{url_for('static', filename = 'images/profile/user-uploads/user-06.jpg') }}"
-                    class="img-fluid rounded" alt="avatar img">
+                    class="img-fluid rounded-circle" alt="avatar img">
                 </a>
               </div>
               <div class="col-md-4 col-6 profile-latest-img">
-                <a href="javascript:void(0)">
+                <a href="">
                   <img src="{{url_for('static', filename = 'images/profile/user-uploads/user-07.jpg') }}"
-                    class="img-fluid rounded" alt="avatar img">
+                    class="img-fluid rounded-circle" alt="avatar img">
                 </a>
               </div>
               <div class="col-md-4 col-6 profile-latest-img">
-                <a href="javascript:void(0)">
+                <a href="">
                   <img src="{{url_for('static', filename = 'images/profile/user-uploads/user-08.jpg') }}"
-                    class="img-fluid rounded" alt="avatar img">
+                    class="img-fluid rounded-circle" alt="avatar img">
                 </a>
               </div>
               <div class="col-md-4 col-6 profile-latest-img">
-                <a href="javascript:void(0)">
-                  <img src="{{url_for('static', filename = 'images/profile/user-uploads/user-09.jpg') }}"class="img-fluid rounded" alt="avatar img">
+                <a href="">
+                  <img src="{{url_for('static', filename = 'images/profile/user-uploads/user-09.jpg') }}"class="img-fluid rounded-circle" alt="avatar img">
                 </a>
               </div>
             </div>

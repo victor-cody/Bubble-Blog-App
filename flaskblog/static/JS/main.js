@@ -59,7 +59,6 @@ const toggleModeButton = document.getElementById("dark-mode-toggle");
 const switchMode = document.getElementById("switch-theme");
 
 const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-
  //toggling our day and night icons
 function changeIcon() {
     switchMode.classList.toggle("active");
@@ -95,7 +94,7 @@ toggleModeButton.addEventListener("click", (event) => {
   });
 
 // onload function to load the correct theme from the localStorage
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
   const currentTheme = localStorage.getItem("theme");
   if (currentTheme == "dark") {
     setTimeout(function() {

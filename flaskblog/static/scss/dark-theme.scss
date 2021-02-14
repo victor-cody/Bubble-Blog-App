@@ -1,0 +1,72 @@
+/*--------------------
+ Styles for users who prefer dark mode at the OS level -------------------------*/
+
+// @media (prefers-color-scheme: dark) { 
+.dark-theme {
+	background: #101523 !important;
+	filter: invert(0) hue-rotate(0deg) blur(0) !important;
+
+	*:not(.alert, .alert *, .error) {
+		color: $darkLayoutText !important;
+		filter: invert(0) hue-rotate(0deg) blur(0) !important;
+	}
+
+	.bg-light,
+	.bg-dark,
+	.bg-white {
+		background: $darkBackground !important;
+		color: $darkLayoutText !important;
+	}
+
+	img {
+		filter: invert(0) hue-rotate(0deg) blur(0) !important;
+	}
+
+	#header {
+		box-shadow: none !important;
+		background: $darkBackground;
+		// filter: invert(0) hue-rotate(0deg) blur(0) !important;
+	}
+
+	.article-item,
+	.article-info {
+		background: hsl(228, 28%, 20%) !important;
+		box-shadow: 0 2px 25px rgba($color: #000000, $alpha: 0.5);
+	}
+
+	.article-item:hover,
+	.article-item:hover {
+		// background: hsl(228, 28%, 16%);
+		box-shadow: 0 2px 25px rgba($color: #000000, $alpha: 0.7);
+	}
+
+	.back-to-top {
+		background: $darkLayoutText;
+	}
+}
+
+// .dark-theme #header,
+// .dark-theme #header * {
+// 	background: hsl(240, 17%, 5%) !important;
+// 	box-shadow: none !important;
+// 	filter: invert(0) hue-rotate(0deg) blur(0) !important;
+// }
+
+// .dark-theme .article-item>*,
+// .dark-theme .article-info>* {
+// 	background: hsl(228, 28%, 20%) !important;
+// 	color: hsl(0, 0%, 100%) !important;
+// 	box-shadow: none;
+// }
+
+// .dark-theme .article-item:hover,
+// .dark-theme .article-item:hover {
+// 	background: hsl(228, 28%, 16%);
+// 	box-shadow: 0 2px 25px hsla(0, 0%, 0%, 0.212);
+// }
+
+.light-theme {
+	filter: none !important;
+}
+
+//  } 
