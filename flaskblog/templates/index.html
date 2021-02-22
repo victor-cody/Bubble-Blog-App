@@ -27,7 +27,10 @@
 		<link href="{{url_for('static', filename = 'lib/animate/animate.min.css')}}" rel="stylesheet" />
 		<link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}" />
 		<!-- Fonts && Icons -->
-		<link rel="stylesheet" href="{{ url_for('static', filename = 'lib/ionicons/css/ionicons.min.css') }}" />
+{# 
+			<link rel="stylesheet"
+				href="{{ url_for('static', filename = 'lib/ionicons/css/ionicons.min.css') }}" />
+#}
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
 
 		<script>
@@ -56,11 +59,11 @@
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse mx-5">
-						<div class="navbar-nav px-2">
-							<a class="nav-item nav-link mx-1" href="{{url_for('home')}}">Home</a>
-							<a class="nav-item nav-link active mx-1" href="{{ url_for('posts') }}">Blog</a>
-							<a class="nav-item nav-link mx-1" href="">About</a>
-						</div>
+						<ul class="navbar-nav px-2">
+							<li class="nav-item mx-1"><a class="nav-link" href="{{url_for('home')}}">Home</a></li>
+							<li class="nav-item mx-1"><a class="nav-link" href="{{ url_for('posts') }}">Blog</a></li>
+							<li class="nav-item mx-1"><a class="nav-link" href="">About</a></li>
+						</ul>
 
 						<h1 class="navbar-brand mx-auto collapsed ">
 							<a class="text-light" href="">
@@ -71,13 +74,14 @@
 						</h1>
 
 						<!-- Navbar Right Side -->
-						<div class="navbar-nav px-2 mr-2">
+						<ul class="navbar-nav px-2 mr-2">
 							{% if current_user.is_authenticated %}
-							<a class="nav-item nav-link mx-1" href="">New
-								Post</a>
-							<a class="nav-item nav-link mx-1" href="{{url_for('account')}}">Account</a>
-							<a class="nav-item nav-link mx-1" href="{{url_for('logout')}}">Logout</a>
-							<a class="nav-item nav-link d-inline-flex align-items-center justify-content-center" href="">
+							<li class="nav-item mx-1	">
+								<a class="nav-link" href="">New
+								Post</a></li>
+							<li class="nav-item mx-1"><a class="nav-link" href="{{url_for('account')}}">Account</a></li>
+							<li class="nav-item mx-1"><a class="nav-link" href="{{url_for('logout')}}">Logout</a></li>
+							<li class=""><a class="nav-item d-inline-flex align-items-center justify-content-center" href="">
 								<div class=" ">
 									<span class="font-weight-bolder mr-2"></span>
 								</div>
@@ -85,15 +89,17 @@
 									data-bs-original-title="Ikechukwu Victor">
 									<img class="avatar rounded-circle" src="../../static/images/avatars/avatar3.jpg"
 										alt="avatar"
-										height="35" width="35">
+										height="35" width="35" data-bs-toggle="tooltip" data-bs-html="true"
+										data-bs-placement="bottom"
+										title="" data-bs-original-title="{{user.username}}">
 									<span class="avatar-status-online"></span>
 								</span>
-							</a>
+							</a></li>
 							{% else %}
-							<a class="nav-item nav-link mx-1" href="{{ url_for('login') }}">Login</a>
-							<a class="nav-item nav-link mx-1" href="{{ url_for('register') }}" target="_blank">Register</a>
+							<li class="nav-item mx-1"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+							<li class="nav-item mx-1"><a class="nav-link" href="{{ url_for('register') }}" target="_blank">Register</a></li>
 							{% endif %}
-						</div>
+						</ul>
 
 						<input type="checkbox" name=" switch theme" id="switch-theme" aria-label="Toggle Dark Mode" class="position-absolute" style="left:-90%;">
 						<label for="" id="dark-mode-toggle"></label>
@@ -266,9 +272,9 @@
 		<script src="{{ url_for('static', filename='lib/js/jquery.min.js') }}"></script>
 		<script src="{{ url_for('static', filename='lib/bootstrap/bootstrap.min.js') }}"></script>
 		<!-- Main JS File -->
-		<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/main.js') }}" type="module"></script>
 		<script type="text/javascript">
-			// When Window is loaded
+			// When Window is loaded  
 			$(window).on("load", function () {
 				// Render the page on modern browser only.
 				if (renderPage) {

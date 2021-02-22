@@ -48,6 +48,16 @@ window.addEventListener("scroll", () => {
   selector: '[data-bs-toggle="tooltip"]'
 }))
 
+// add the class "active" to the clicked lick 
+document.querySelectorAll(".nav-item , .nav-link").forEach((element,i,parent) => {
+  element.addEventListener("click", (e) => {
+    for (element of parent) {
+      element.classList.remove("active")
+    }
+    e.target.classList.add("active");
+  })
+});
+
  document.querySelectorAll('[data-bs-toggle="popover"]')
  .forEach(popup => new bootstrap.Popover(popup))
 
@@ -55,13 +65,10 @@ window.addEventListener("scroll", () => {
 $('a[href="#"], a[href=""]').attr('href', 'javascript:void(0)');
 
 // a dark Mode API
-const toggleModeButton = document.getElementById("dark-mode-toggle");
-const switchMode = document.getElementById("switch-theme");
-
 const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
  //toggling our day and night icons
 function changeIcon() {
-    switchMode.classList.toggle("active");
+    document.getElementById("switch-theme").classList.toggle("active");
 }
 
 function toggleTheme(event) {  
@@ -83,8 +90,8 @@ function toggleTheme(event) {
     console.log(theme);
 }
 
-// EventListener for button to toggle btw dark and light mode 
-toggleModeButton.addEventListener("click", (event) => {
+// EventListener for toggle button to toggle btw dark and light mode 
+document.getElementById("dark-mode-toggle").addEventListener("click", (event) => {
     event.preventDefault();
     changeIcon()
     setTimeout(function() {

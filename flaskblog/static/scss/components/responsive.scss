@@ -1,6 +1,29 @@
 /*--------------------------------------------------------------
 # Responsive Media Queries
 --------------------------------------------------------------*/
+@media (min-width: 112.5em) {
+	body {
+		font-size: 75%;
+	}
+}
+
+@media (max-width: 75em) {
+	body {
+		font-size: 56.25%;
+	}
+}
+
+@media (max-width: 56.25em) {
+	body {
+		font-size: 50%;
+	}
+}
+
+@media (max-width: 37.5em) {
+	body {
+		font-size: 40%;
+	}
+}
 
 @media (min-width: 992px) {
 	#testimonials .testimonial-item p {

@@ -22,6 +22,7 @@ def register():
 					password = hashed_password)
 		db.session.add(user)
 		db.session.commit()
+		# login_user(user)
 		flash(f'Successfully created your Account {user.username}!, you can now log in', 'primary')
 		return redirect(url_for('login'))
 	return render_template('register.html', title='Sign Up Page', form=form)

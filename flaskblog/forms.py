@@ -1,8 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, SubmitField, StringField, PasswordField, TextAreaField, SelectMultipleField, ValidationError
 from wtforms.validators import DataRequired, EqualTo, Length, Email
-from flaskblog.models import User
-
+from flaskblog.models import User , Post
 
 
 class RegistrationForm(FlaskForm):
@@ -70,3 +69,11 @@ class LoginForm(FlaskForm):
 	Length(min=6, max=16, message='Your password must be a minimum of 6 - 16 charaters')])
 	remember = BooleanField('Remember Me',default='checked')
 	submit = SubmitField('Log In')
+
+class createPost (FlaskForm):
+	"""
+	Our Blog Post Form Class To let users create posts
+	"""
+	title = StringField("title", validators=[DataRequired(message="you must provide a title")])
+	content = TextAreaField('Post Content', validators=[DataRequired()])
+	submit = SubmitField('Publish')
