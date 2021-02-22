@@ -41,6 +41,9 @@ def login():
 			next_page = request.args.get('next')
 			flash(f'Login Successful, Welcome {user.username} ', 'primary')
 			return redirect(next_page) if next_page else redirect(url_for('home'))
+		elif not user:
+			flash('that user does not exist please sign up as a new user ', 'info')
+			return redirect(url_for("register"))
 		else:
 			flash('Login Unsuccessful, Please check that your email and password are correct', 'danger')
 	return render_template('login.html', title='Login Page', form=form)

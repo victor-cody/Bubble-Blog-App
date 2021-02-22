@@ -19,18 +19,15 @@
 
 		<meta property="og:type" content="blog" />
 		<meta property="og:image" content="http://phcschoolofai.org/media/logos/whitelogo.png" />
-		<meta property="og:site_name" content="Flask Blog" />
-		<meta property="og:description" content="The Flask blog
+		<meta property="og:site_name" content="Burble Blog" />
+		<meta property="og:description" content="The Burble blog
 		A Not-For-Profit organization whose primary objective is to democratize AI education in Port Harcourt for free ." />
 		<!-- Favicons -->
 		<link type="image/png" href="{{ url_for('static', filename='images/logo3.png') }}" rel="shortcut icon" />
 		<link href="{{url_for('static', filename = 'lib/animate/animate.min.css')}}" rel="stylesheet" />
 		<link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}" />
 		<!-- Fonts && Icons -->
-{# 
-			<link rel="stylesheet"
-				href="{{ url_for('static', filename = 'lib/ionicons/css/ionicons.min.css') }}" />
-#}
+		<link rel="stylesheet" href="{{ url_for('static', filename = 'lib/ionicons/css/ionicons.min.css') }}" />
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
 
 		<script>
@@ -91,7 +88,7 @@
 										alt="avatar"
 										height="35" width="35" data-bs-toggle="tooltip" data-bs-html="true"
 										data-bs-placement="bottom"
-										title="" data-bs-original-title="{{user.username}}">
+										title="" data-bs-original-title="{{current_user.username}}">
 									<span class="avatar-status-online"></span>
 								</span>
 							</a></li>
