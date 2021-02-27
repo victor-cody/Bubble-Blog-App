@@ -1,6 +1,6 @@
 {
     "python.testing.pytestArgs": [
-        "flaskblog"
+        "App"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,

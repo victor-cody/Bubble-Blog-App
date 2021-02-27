@@ -1,0 +1,185 @@
+{% extends "index.html" %}
+{% from 'components/blog_logo.html' import center_blog_logo %}
+
+{% block page_header %}
+{{ center_blog_logo(3) }}
+<!-- <input type="checkbox" name=" switch theme" id="switch-theme" aria-label="Toggle Dark Mode">
+<label for="" id="dark-mode-toggle" class=" float-right mr-5"></label> -->
+{% endblock %}
+
+
+{% block content %}
+
+<section class="content-section contact mb-3 col-md-10 col-lg-7 bg-white wow fadeInLeftBig"
+  id="contact" data-wow-delay="0.25s">
+
+  <!-- {{ center_blog_logo(2) }} -->
+  <div class="d-flex justify-content-center">
+    <span><i class="ion-android-person display-4"></i></span>
+  </div>
+  <form action="" method='POST' role="form" role="form" class="form row justify-content-center"
+    aria-autocomplete="list">
+
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group col-md-10 col-lg-10">
+
+      <legend class="border-bottom mb-3 pb-3 h4 text-center">
+        Log In
+      </legend>
+
+      <div class="form-group ">
+
+        {{ form.email.label(class="form-control-label ") }}
+
+        {% if form.email.errors %}
+
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ion-ios-email"></i></span>
+          </div>
+          {{ form.email(class=" form-control form-control-lg is-invalid ", placeholder="example@gmail.com") }}
+          <div class="invalid-feedback">
+            {% for error in form.email.errors %}
+            <p class="error" aria-errormessage="{{error}}">{{ error }}</p>
+            {% endfor %}
+          </div>
+        </div>
+
+        {% else %}
+
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ion-ios-email"></i></span>
+          </div>
+          {{ form.email(class=" form-control form-control-lg  ",placeholder="example@email.com") }}
+        </div>
+
+        {% endif %}
+      </div>
+
+      <div class="form-group">
+
+        {{ form.password.label(class="form-control-label ") }}
+
+        {% if form.password.errors %}
+
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ion-android-lock"></i></span>
+          </div>
+
+          {{ form.password(class=" form-control form-control-lg  is-invalid ", placeholder="Password" ) }}
+
+
+          <div class="invalid-feedback">
+            {% for error in form.password.errors %}
+            <p class="error" aria-errormessage="{{error}}">{{ error }}</p>
+            {% endfor %}
+          </div>
+
+        </div>
+
+        {% else %}
+
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ion-android-lock"></i></span>
+          </div>
+          {{ form.password(class=" form-control form-control-lg  ", placeholder="Password") }}
+        </div>
+
+        {% endif %}
+
+      </div>
+
+      <div class="form-check mb-2">
+        {{ form.remember(class="form-check-input") }}
+        {{ form.remember.label(class="form-check-label") }}
+      </div>
+
+    </fieldset>
+
+    <div class="form-group col-lg-10">
+      {{ form.submit(class="btn btn-lg btn-outline-info px-5 rounded ") }}
+      <small class="text-muted ml-3 pl-3 border-left"><a href="" class="text-uppercase">Forgot
+          Password
+          ?</a></small>
+    </div>
+
+  </form>
+
+  <section class="container border-top mt-3 pt-4">
+
+    <div class="social-links ">
+      <a href="#" class="twitter" aria-label="log in using your twitter account"><i
+          class="ion-social-twitter"></i></a>
+
+      <a href="#" class="facebook" aria-label="log in using your facebook account"><i
+          class="ion-social-facebook"></i></a>
+
+      <a href="#" class="google-plus" aria-label="log in using your email account"><i
+          class="ion-android-mail"></i></a>
+
+    </div>
+
+    <div class="container mt-4 pt-2 pb-2 text-center">
+
+      <small class="text-muted text-uppercase ">don't have an account ? <a
+          href="{{url_for('register')}}" class="ml-3">sign up now</a>
+      </small>
+
+    </div>
+
+  </section>
+
+</section>
+
+{% endblock %}
+
+{% block aside %}{% endblock %}
+
+
+{% block scripts %}
+{% endblock %}
+
+<section class="booking-section">
+  <div class="row">
+    <div class="booking">
+      <div class="booking__form">
+        <form action="" class="form">
+          <div class="u-center-text u-margin-bottom-small">
+            <h2 class="heading-secondary">Book A Trip now</h2>
+          </div>
+          <div class="form__group u-margin-bottom-small">
+            <input type="text" class="form__input" id="name" placeholder="Full Name" required="">
+            <label for="name" class="form__label"> Full Name</label>
+          </div>
+          <div class="form__group u-margin-bottom-small">
+            <input type="email" class="form__input" id="name" placeholder="Email" required="">
+            <label for="name" class="form__label"> Email</label>
+          </div>
+          <div class="form__group u-margin-bottom-small">
+            <div class="form__radio-group">
+              <input type="radio" id="personal" class="form__radio-input" name="travel-size">
+              <label for="personal" class="form__radio-label">
+                <span class="form__radio-button"></span>
+                Personal Travel
+              </label>
+            </div>
+            <div class="form__radio-group">
+              <input type="radio" id="group" class="form__radio-input" name="travel-size">
+              <label for="group" class="form__radio-label">
+                <span class="form__radio-button"></span>
+                Group Travel
+              </label>
+            </div>
+          </div>
+          <div class="form__group u-margin-bottom-small u-margin-top-small">
+            <button class="btn btn--purple">Next Step →</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

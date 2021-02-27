@@ -1,0 +1,8 @@
+
+  {% macro center_blog_logo(y=0,x=0) -%}
+  <div class="d-flex justify-content-center mb-{{y}} ">
+    <a class="ml-{{x}}" href="">
+        <img class="blog-logo" src=" {{ url_for('static', filename='images/logo3.png') }} " alt="blog logo" srcset=""  />
+      </a>
+  </div>
+{%- endmacro %}
