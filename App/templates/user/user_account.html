@@ -1,4 +1,4 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
 
 {% block header %}
 <section class="header">
@@ -17,7 +17,7 @@
 </section>
 {% endblock %}
 
-{% block content %}
+{% block main_content %}
 <section id="user-profile" class="col-lg-12">
   <!-- profile header -->
   <div class="row">
@@ -524,8 +524,12 @@
 
 {% endblock %}
 
-{% block aside %}
+<!-- Page Aside -->
+{% block aside %} {% endblock %}
 
+<!-- Page Footer -->
+{% block footer %}
+{{super()}}
 {% endblock %}
 
 {% block scripts %}

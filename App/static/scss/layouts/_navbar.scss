@@ -26,52 +26,56 @@
 
 #switch-theme {
 
-&.active+label {
-	background: $color-white !important;
-	box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.123) !important;
+	&.active {
 
-	&::after {
-		/* filter: none !important; */
-		transform: translate(1.2rem);
-		content: "\f468";
+		+label {
+			background: $color-white !important;
+			box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.123) !important;
+
+			&::after {
+				/* filter: none !important; */
+				transform: translate(1.2rem);
+				content: "\f186";
+			}
+		}
 	}
-}
 
-+label {
-	font-size: 2.8rem;
-	text-indent: -100vw;
-	cursor: pointer;
-	background: hsla(0, 0%, 50%, 0.637);
-	position: relative;
-	border: solid 0.38rem transparent;
-	width: 3.2rem;
-	height: 2rem;
-	border-radius: 2rem;
-	box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.4);
-	pointer-events: all;
-
-	&::after {
-		position: absolute;
-		top: -2px;
-		left: 0;
-		box-sizing: border-box;
-		align-items: center;
-		justify-content: center;
-		padding: 0.5rem;
-		width: 1.3rem;
-		height: 1.3rem;
+	+label {
 		font-size: 2rem;
-		border-radius: 50%;
-		box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.575);
-		color: var(--yellow);
-		text-indent: 0;
-		text-transform: uppercase;
-		transition: 0.5rem all ease-in-out;
-		display: inline-flex;
-		font-family: "Ionicons";
-		content: "\f4b7";
+		text-indent: -100vw;
+		cursor: pointer;
+		background: hsla(0, 0%, 50%, 0.637);
+		position: relative;
+		border: solid 0.38rem transparent;
+		width: 3.5rem;
+		height: 2rem;
+		border-radius: 2rem;
+		box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.4);
+		pointer-events: all;
+
+		&::after {
+			font-size: inherit;
+			position: absolute;
+			top: -2px;
+			left: 0;
+			box-sizing: border-box;
+			align-items: center;
+			justify-content: center;
+			padding: 0.5rem;
+			width: 1.3rem;
+			height: 1.3rem;
+			font-size: 1.3rem;
+			border-radius: 50%;
+			box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.575);
+			color: var(--yellow);
+			text-indent: 0;
+			text-transform: uppercase;
+			transition: 0.5rem all ease-in-out;
+			display: inline-flex;
+			font-family: "FontAwesome";
+			content: "\f185";
+		}
 	}
-}
 
 }
 

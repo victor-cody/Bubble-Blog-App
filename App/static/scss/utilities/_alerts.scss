@@ -1,0 +1,16 @@
+.alert{
+	&-primary {
+		@include alert-variant($color-alert-info-bg, $color-alert-info-text, $color-alert-info-border, $color-alert-info-icon);
+	}
+
+	&-warning {
+		@include alert-variant($color-alert-warn-bg, $color-alert-warn-text, $color-alert-warn-border, $color-alert-warn-icon);
+	}
+
+	&-danger {
+		@include alert-variant($color-alert-error-bg, $color-alert-error-text, $color-alert-error-border, $color-alert-error-icon);
+	}
+	&-success {
+		@include alert-variant($color-alert-success-bg, $color-alert-success-text, $color-alert-success-border, $color-alert-success-icon);
+	}
+}

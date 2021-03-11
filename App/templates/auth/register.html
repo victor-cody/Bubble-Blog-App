@@ -1,14 +1,15 @@
-{% extends "index.html" %}
-{% from 'components/blog_logo.html' import center_blog_logo %}
+{% extends "base.html" %}
+{% from 'includes/blog_logo.html' import center_blog_logo %}
 
 {% block page_header %}
 <input type="checkbox" name=" switch theme" id="switch-theme" aria-label="Toggle Dark Mode">
 <label for="" id="dark-mode-toggle" class=" float-right mr-5"></label>
 {% endblock %}
 
-{%- block content %}
+{%- block main_content %}
 
 <section class=" content-section contact col-md-9 col-lg-7 bg-white wow fadeInLeftBig" id="contact" data-wow-delay="0.25s">
+    <!-- Blog logo -->
     {{ center_blog_logo() }}
 
     <form action="" method='POST' role="form" role="form" class="form row justify-content-center">
@@ -153,13 +154,13 @@
     </h3>
 
 </section>
-
-
-
 {%- endblock %}
 
+<!-- Page aside -->
 {% block aside %}{% endblock %}
 
-{% block scripts %}
+<!-- Page Footer -->
 
-{% endblock %}
+
+<!-- Page Scripts -->
+{% block scripts %}{% endblock %}
