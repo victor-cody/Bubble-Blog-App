@@ -1,0 +1,21 @@
+<!-- JS Libraries / Core JS Files   -->
+<script src="{{ url_for('static', filename='js/core/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/plugins/proper.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/core/bootstrap.min.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/plugins/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/js/wow.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/plugins/perfect-scrollbar.jquery.min.js') }}">
+</script>
+
+<!-- Main JS File -->
+<script src="{{ url_for('static', filename='js/main.js') }}" type="module"></script>
+<script type="text/javascript">
+	// When Window is loaded  
+	$(window).on("load", function () {
+		// Render the page on modern browser only.
+		if (renderPage) {
+			console.log("Page Loaded");
+		}
+	})
+</script>

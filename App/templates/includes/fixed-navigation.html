@@ -1,0 +1,80 @@
+<!-- Header -->
+<header id="header" class="bg-light sticky-top">
+	<nav class=" main-nav navbar navbar-expand-lg navbar-light wow fadeInDown " role="navigation">
+
+		<h1 class="navbar-brand collapsed float-left pl-5 blog-logo-hide">
+			<a class="text-light" href="">
+				<img class="blog-logo mr-2"
+					src=" {{ url_for('static', filename='images/logo3.png') }} " alt="blog logo"
+					srcset="" class="mr-1" />
+				Bubble
+				<!-- Flask Blog -->
+			</a>
+		</h1>
+
+		<div class="collapse navbar-collapse mx-5">
+			<ul class="navbar-nav px-2">
+				<li class="nav-item mx-1"><a class="nav-link" href="{{url_for('home')}}">Home</a>
+				</li>
+				<li class="nav-item mx-1"><a class="nav-link" href="{{ url_for('posts') }}">Blog</a>
+				</li>
+				<li class="nav-item mx-1"><a class="nav-link" href="">About</a></li>
+			</ul>
+
+			<h1 class="navbar-brand mx-auto collapsed ">
+				<a class="text-light" href="">
+					<img class="blog-logo mr-2"
+						src=" {{ url_for('static', filename='images/logo3.png') }} " alt="blog logo"
+						srcset="" class="mr-1" />
+					<!-- Flask Blog -->
+				</a>
+			</h1>
+
+			<!-- Navbar Right Side -->
+			<ul class="navbar-nav px-2 mr-2">
+				{% if current_user.is_authenticated %}
+				<li class="nav-item mx-1	">
+					<a class="nav-link" href="">New
+						Post</a></li>
+				<li class="nav-item mx-1"><a class="nav-link"
+						href="{{url_for('account')}}">Account</a></li>
+				<li class="nav-item mx-1"><a class="nav-link"
+						href="{{url_for('logout')}}">Logout</a></li>
+				<li class=""><a
+						class="nav-item d-inline-flex align-items-center justify-content-center"
+						href="">
+						<div class=" ">
+							<span class="font-weight-bolder mr-2"></span>
+						</div>
+						<span class="avatar drop-down" data-bs-toggle="tooltip"
+							data-bs-placement="bottom" title=""
+							data-bs-original-title="Ikechukwu Victor">
+							<img class="avatar rounded-circle"
+								src="../static/images/avatars/avatar3.jpg" alt="avatar" height="35"
+								width="35" data-bs-toggle="tooltip" data-bs-html="true"
+								data-bs-placement="bottom" title=""
+								data-bs-original-title="{{current_user.username}}">
+							<span class="avatar-status-online"></span>
+						</span>
+					</a></li>
+				{% else %}
+				<li class="nav-item mx-1"><a class="nav-link"
+						href="{{ url_for('login') }}">Login</a></li>
+				<li class="nav-item mx-1"><a class="nav-link" href="{{ url_for('register') }}"
+						target="_blank">Register</a></li>
+				{% endif %}
+			</ul>
+
+			<input type="checkbox" name=" switch theme" id="switch-theme"
+				aria-label="Toggle Dark Mode" class="position-absolute" style="left:-90%;">
+			<label for="" id="dark-mode-toggle"></label>
+		</div>
+		<!-- mobile nav button -->
+		<button class="bg-info navbar-toggler collapsed float-right mobile-nav-toggle" id=""
+			type="button" data-bs-toggle="collapse" data-toggle="collapse" data-target="#mobile-nav"
+			aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	</nav>
+
+</header>

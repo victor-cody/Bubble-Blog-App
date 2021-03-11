@@ -1,0 +1,18 @@
+// mixin for alerts
+@mixin alert-variant($background, $color, $border ,$icon-color) {
+	color: $color !important;
+	// @include gradient-bg($background);
+	background-color: $background !important;
+	border-color: $border !important;
+
+	hr {
+		border-top-color: darken($border, 5%) !important;
+	}
+
+	.close{
+		color: $icon-color !important;
+	}
+	.alert-link {
+		color: darken($color, 10%) !important;
+	}
+}

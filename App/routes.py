@@ -41,7 +41,7 @@ def login():
 		if user and bcrypt.check_password_hash(user.password, form.password.data):
 			login_user(user, form.remember.data)
 			next_page = request.args.get('next')
-			flash(f'Login Successful, Welcome {user.username} ', 'primary')
+			flash(f'Login Successful, Welcome {user.username} ', 'success')
 			return redirect(next_page) if next_page else redirect(url_for('home'))
 		elif not user:
 			flash('that user does not exist please sign up as a new user ', 'info')
@@ -70,7 +70,7 @@ def account():
 @app.route("/home/")
 def home():
 	""" Our home page """
-	return render_template('main.html', title="Home Page", user_words=words, ratings=10, course_list=courses, users=User.query.all())
+	return render_template('index.html', title="Home Page", user_words=words, ratings=10, course_list=courses, users=User.query.all())
 
 
 @app.route("/posts/")

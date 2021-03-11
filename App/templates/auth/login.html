@@ -1,5 +1,5 @@
-{% extends "index.html" %}
-{% from 'components/blog_logo.html' import center_blog_logo %}
+{% extends "base.html" %}
+{% from 'includes/blog_logo.html' import center_blog_logo %}
 
 {% block page_header %}
 {{ center_blog_logo(3) }}
@@ -8,7 +8,7 @@
 {% endblock %}
 
 
-{% block content %}
+{% block main_content %}
 
 <section class="content-section contact mb-3 col-md-10 col-lg-7 bg-white wow fadeInLeftBig"
   id="contact" data-wow-delay="0.25s">
@@ -112,13 +112,13 @@
 
     <div class="social-links ">
       <a href="#" class="twitter" aria-label="log in using your twitter account"><i
-          class="ion-social-twitter"></i></a>
+          class="fa fa-twitter"></i></a>
 
       <a href="#" class="facebook" aria-label="log in using your facebook account"><i
-          class="ion-social-facebook"></i></a>
+          class="fa fa-facebook"></i></a>
 
       <a href="#" class="google-plus" aria-label="log in using your email account"><i
-          class="ion-android-mail"></i></a>
+          class="fa fa-google"></i></a>
 
     </div>
 

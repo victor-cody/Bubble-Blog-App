@@ -2,7 +2,6 @@ import { Theme } from "./theme.mjs";
 
 (function ($,theme) {
 // 'use strict'
-
 function stickElement (selector,newClass,limit = 120) {
   // Get the current scroll value
   let BrowserHeight = document.documentElement.scrollTop || document.body.scrollTop;
@@ -37,6 +36,10 @@ document.querySelector(".back-to-top").addEventListener("click", (event) => {
   scrollToTop();
 });
 
+
+window.addEventListener("load", () => {
+  stickElement(".back-to-top", "show-toTop-btn", 190)
+});
 
 window.addEventListener("scroll", () => {
   stickElement(".back-to-top","show-toTop-btn",190)
@@ -73,7 +76,7 @@ document.getElementById("dark-mode-toggle").addEventListener("click", (event) =>
     theme.changeIcon()
     setTimeout(function() {
       theme.toggleTheme(event)
-    }, 500);
+    }, 300);
     console.log("Toggled!");
   });
 
