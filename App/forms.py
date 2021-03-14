@@ -1,7 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, SubmitField, StringField, PasswordField, TextAreaField, SelectMultipleField, ValidationError
-from wtforms.validators import DataRequired, EqualTo, Length, Email
-from App.models import User, Post
+from wtforms import (BooleanField, PasswordField, SelectMultipleField, StringField, SubmitField, TextAreaField, ValidationError)
+from wtforms.validators import DataRequired, Email, EqualTo, Length
+from App import bcrypt
+from App.models import Post, User
 
 
 class RegistrationForm(FlaskForm):
@@ -71,6 +72,23 @@ class LoginForm(FlaskForm):
 	remember = BooleanField('Remember Me', default='checked')
 	submit = SubmitField('Log In')
 
+	
+	def validate_email(self, email):
+		email = User.query.filter_by(email = email.data).first()
+		if email:
+			pass
+		else:
+			raise ValidationError(f"Sorry that email doesn't match our records ")
+
+	
+	# def validate_password(self, password):
+	# 	hw_password = bcrypt.generate_password_hash(password.data).decode('UTF-8')
+	# 	password = User.query.filter_by(password = hw_password).first()
+	# 	if password:
+	# 		pass
+	# 	else:
+	# 		raise ValidationError(f"Incorrect Password!")
+		
 
 class createPost (FlaskForm):
 	"""
