@@ -43,9 +43,9 @@ def login():
 			next_page = request.args.get('next')
 			flash(f'Login Successful, Welcome {user.username} ', 'success')
 			return redirect(next_page) if next_page else redirect(url_for('home'))
-		elif not user:
-			flash('that user does not exist please sign up as a new user ', 'info')
-			return redirect(url_for("register"))
+		# elif not user:
+		# 	flash('that user does not exist ', 'info')
+		# 	# return redirect(url_for("register"))
 		else:
 			flash('Login Unsuccessful, Please check that your email and password are correct', 'danger')
 	return render_template('auth/login.html', title='Login Page', form=form)
@@ -78,7 +78,7 @@ def posts():
 	return render_template('blog/blog_posts.html', posts=blog_posts, title="Posts Section")
 
 
-@app.route("/post/new/")
+@app.route("/posts/new/")
 @login_required
 def new_post():
 	return render_template('blog/publish_post.html', title="New Post")

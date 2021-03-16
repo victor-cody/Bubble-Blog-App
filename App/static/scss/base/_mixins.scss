@@ -1,5 +1,5 @@
 // mixin for alerts
-@mixin alert-variant($background, $color, $border ,$icon-color) {
+@mixin alert-variant($background, $color, $border, $icon-color) {
 	color: $color !important;
 	// @include gradient-bg($background);
 	background-color: $background !important;
@@ -9,10 +9,68 @@
 		border-top-color: darken($border, 5%) !important;
 	}
 
-	.close{
+	.close {
 		color: $icon-color !important;
 	}
+
 	.alert-link {
 		color: darken($color, 10%) !important;
+	}
+}
+
+
+@mixin placeholder ($text) {
+	position: relative;
+
+}
+
+@mixin tooltip ($direction) {
+	position: relative;
+
+	&::before {
+		$scale: 0;
+		content: attr(data-tooltip);
+		background-color: hsl(216, 28%, 7%);
+		color: $color-gray-0;
+		position: absolute;
+		padding: .5rem;
+		min-width: max-content;
+		max-width: 100%;
+		border-radius: .35rem;
+		top: -50%;
+		left: -50%;
+		transform: translateX(-50%) translateY(-50%) scale($scale);
+		transform-origin: $direction center;
+		opacity: $scale;
+		transition: all .3s ease-in;
+	}
+
+	&:hover::before {
+		$scale: 1;
+		opacity: $scale;
+
+		@if $direction==top {
+			top: -.35rem;
+			left: 50%;
+			transform: translateX(-50%) translateY(-100%) scale($scale);
+		}
+
+		@else if $direction==bottom {
+			bottom: -.35rem;
+			left: 50%;
+			transform: translateX(-50%) translateY(100%) scale($scale);
+		}
+
+		@else if $direction==left {
+			top: 50%;
+			left: -.35rem;
+			transform: translateX(-100%) translateY(-50%) scale($scale);
+		}
+
+		@else if $direction==right {
+			top: 50%;
+			right: -.35rem;
+			transform: translateX(-100%) translateY(-50%) scale($scale);
+		}
 	}
 }

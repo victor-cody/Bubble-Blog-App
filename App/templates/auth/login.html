@@ -1,5 +1,9 @@
 {% extends "base.html" %}
+
 {% from 'includes/blog_logo.html' import center_blog_logo %}
+
+{% from 'includes/_forms_templates.html' import render_field %}
+
 
 {% block page_header %}
 {{ center_blog_logo(3) }}
@@ -10,7 +14,8 @@
 
 {% block main_content %}
 
-<section class="content-section contact mb-3 col-md-10 col-lg-7 bg-white wow fadeInLeftBig"
+<section
+  class="content-section contact mb-3 col-sm-10 col-xsm-10 col-md-7 col-lg-7 bg-white wow fadeInLeftBig"
   id="contact" data-wow-delay="0.25s">
 
   <!-- {{ center_blog_logo(2) }} -->
@@ -28,68 +33,11 @@
       </legend>
 
       <div class="form-group ">
-
-        {{ form.email.label(class="form-control-label ") }}
-
-        {% if form.email.errors %}
-
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text"><i class="ion-ios-email"></i></span>
-          </div>
-          {{ form.email(class=" form-control form-control-lg is-invalid ", placeholder="example@gmail.com") }}
-          <div class="invalid-feedback">
-            {% for error in form.email.errors %}
-            <p class="error" aria-errormessage="{{error}}">{{ error }}</p>
-            {% endfor %}
-          </div>
-        </div>
-
-        {% else %}
-
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text"><i class="ion-ios-email"></i></span>
-          </div>
-          {{ form.email(class=" form-control form-control-lg  ",placeholder="example@email.com") }}
-        </div>
-
-        {% endif %}
+        {{render_field(form.email, icon = "ion-ios-email", placeholder= 'example@gmail.com' )}}
       </div>
 
-      <div class="form-group">
-
-        {{ form.password.label(class="form-control-label ") }}
-
-        {% if form.password.errors %}
-
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text"><i class="ion-android-lock"></i></span>
-          </div>
-
-          {{ form.password(class=" form-control form-control-lg  is-invalid ", placeholder="Password" ) }}
-
-
-          <div class="invalid-feedback">
-            {% for error in form.password.errors %}
-            <p class="error" aria-errormessage="{{error}}">{{ error }}</p>
-            {% endfor %}
-          </div>
-
-        </div>
-
-        {% else %}
-
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text"><i class="ion-android-lock"></i></span>
-          </div>
-          {{ form.password(class=" form-control form-control-lg  ", placeholder="Password") }}
-        </div>
-
-        {% endif %}
-
+      <div class="form-group ">
+        {{render_field(form.password, icon = "ion-android-lock", placeholder= 'Ssh this is private' )}}
       </div>
 
       <div class="form-check mb-2">

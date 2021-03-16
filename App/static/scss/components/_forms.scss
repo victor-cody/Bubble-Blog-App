@@ -26,6 +26,10 @@
 	line-height: 1;
 }
 
+input::-webkit-input-placeholder {
+	content: "login";
+}
+
 .form .form-control {
 	border: none;
 	outline: none;

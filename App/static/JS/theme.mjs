@@ -8,13 +8,13 @@ export const Theme = ( function () {
 		if (currentTheme == "dark") {
 			setTimeout(function () {
 				document.body.classList.toggle("dark-theme");
-			}, 500);
+			},300);
 			changeIcon()
 		} else if (currentTheme == "light") {
 			document.body.classList.toggle("light-theme");
 		}
 	});
-
+		
 	function changeIcon() {
 		document.getElementById("switch-theme").classList.toggle("active");
 	}
@@ -44,3 +44,5 @@ export const Theme = ( function () {
 
 	}
 })();
+
+

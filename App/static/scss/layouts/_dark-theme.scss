@@ -79,9 +79,10 @@
 		box-shadow: 0 2px 25px rgba($color: #000000, $alpha: 0.7);
 	}
 
-	// .back-to-top {
-	// 	background: $darkLayoutText;
-	// }
+	.back-to-top {
+		background: initial;
+		filter: none !important;
+	}
 }
 
 // .dark-theme #header,

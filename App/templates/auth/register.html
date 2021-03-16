@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+
+{% from 'includes/_forms_templates.html' import render_field %}
+
 {% from 'includes/blog_logo.html' import center_blog_logo %}
 
 {% block page_header %}
@@ -8,7 +11,8 @@
 
 {%- block main_content %}
 
-<section class=" content-section contact col-md-9 col-lg-7 bg-white wow fadeInLeftBig" id="contact" data-wow-delay="0.25s">
+<section class=" content-section contact col-md-9 col-lg-7 bg-white wow fadeInLeftBig" id="contact"
+    data-wow-delay="0.25s">
     <!-- Blog logo -->
     {{ center_blog_logo() }}
 
@@ -22,122 +26,22 @@
             </legend>
 
             <div class="form-group ">
+                {{render_field(form.username, icon = "ion-person", placeholder="Username")}}
+            </div>
 
-                {{ form.username.label(class="form-control-label font-weight-bold") }}
+        <!-- <i class="ion-person"></i> -->
 
-                {%- if form.username.errors %}
-
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ion-android-person"></i></span>
-                </div>
-
-                {{ form.username(class=" form-control form-control-md is-invalid is-invalid ", placeholder="Username") }}
-
-                <div class="invalid-feedback">
-                    {% for error in form.username.errors %}
-                    <p class="error" aria-errormessage="{{error}}">{{ error }}</p>
-                    {% endfor %}
-                </div>
-                </div>
-
-                {% else %}
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ion-android-person"></i></span>
-                </div>
-
-                {{ form.username(class=" form-control form-control-md ", placeholder="Username") }}
-                </div>
-                {% endif %}
-
+            <div class="form-group ">
+                {{render_field(form.email, icon = "ion-ios-email", placeholder= 'example@gmail.com' )}}
             </div>
 
             <div class="form-group ">
-
-                {{ form.email.label(class="form-control-label font-weight-bold") }}
-
-                {% if form.email.errors %}
-
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ion-ios-email"></i></span>
-                    </div>
-                    {{ form.email(class=" form-control form-control-md is-invalid ", placeholder="example@gmail.com") }}
-                <div class="invalid-feedback">
-                    {% for error in form.email.errors %}
-                    <p class="error" aria-errormessage="{{error}}">{{ error }}</p>
-                    {% endfor %}
-                </div>
-                </div>
-
-                {% else %}
-
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ion-ios-email"></i></span>
-                    </div>
-                    {{ form.email(class=" form-control form-control-md  ",placeholder="example@email.com") }}
-                </div>
-
-                {% endif %}
+                {{render_field(form.password,icon = "ion-android-lock", placeholder="Ssh this is private" )}}
             </div>
 
-            <div class="form-group ">
-
-                {{ form.password.label(class="form-control-label font-weight-bold") }}
-                {% if form.password.errors %}
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ion-android-lock"></i></span>
-                </div>
-
-                {{ form.password(class=" form-control form-control-md  is-invalid ", placeholder="Ssh this is private") }}
-                <div class="invalid-feedback">
-                    {% for error in form.password.errors %}
-                    <p class="error" aria-errormessage="{{error}}">{{ error }}</p>
-                    {% endfor %}
-                </div>
-                </div>
-
-                {% else %}
-
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ion-android-lock"></i></span>
-                </div>
-                {{ form.password(class=" form-control form-control-md  ", placeholder="Ssh this is private") }}
-                </div>
-
-                {% endif %}
-            </div>
 
             <div class="form-group ">
-
-                {{ form.confirm_password.label(class="form-control-label font-weight-bold") }}
-                {% if form.confirm_password.errors %}
-
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ion-android-lock"></i></span>
-                </div>
-                {{ form.confirm_password(class=" form-control form-control-md is-invalid ", placeholder="Must match password") }}
-                <div class="invalid-feedback">
-                    {% for error in form.confirm_password.errors %}
-                    <p class="error" aria-errormessage="{{error}}">{{ error }}</p>
-                    {% endfor %}
-                </div>
-                </div>
-                {% else %}
-
-               <div class="input-group">
-                    <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ion-android-lock"></i></span>
-                </div>
-                {{ form.confirm_password(class=" form-control form-control-md ", placeholder="Must match password") }}
-               </div>
-                {% endif %}
-
+                {{render_field(form.confirm_password, icon = "ion-android-lock", placeholder="Must match password" )}}
             </div>
 
             <div class="form-group mt-3">
@@ -145,11 +49,12 @@
             </div>
 
         </fieldset>
-        
+
     </form>
 
     <h3 class="h6 container text-center  text-uppercase border-top mt-2 pt-2 pb-2">
-        <small class="text-muted">already have an account ? <a href="{{url_for('login')}}" class="ml-2">sign
+        <small class="text-muted">already have an account ? <a href="{{url_for('login')}}"
+                class="ml-2">sign
                 in</a></small>
     </h3>
 

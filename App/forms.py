@@ -1,7 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, SubmitField, StringField, PasswordField, TextAreaField, SelectMultipleField, ValidationError
-from wtforms.validators import DataRequired, EqualTo, Length, Email
-from App.models import User, Post
+from wtforms import (BooleanField, PasswordField, SelectMultipleField, StringField, SubmitField, TextAreaField, ValidationError)
+from wtforms.validators import DataRequired, Email, EqualTo, Length
+from App import bcrypt
+from App.models import Post, User
 
 
 class RegistrationForm(FlaskForm):
@@ -10,30 +11,30 @@ class RegistrationForm(FlaskForm):
 	"""
 	# Username Field
 	username = StringField(
-            'Usename',
+            'Usename', id="username",
             validators=[DataRequired(message="choose your username"),
                         Length(min=4, max=20)],
             description="Your Username")
 	# Email Field
 	email = StringField(
-		'Email Address',
+		'Email Address', id="email",
 		validators=[DataRequired(message="please fill in your email address"),
                     Email()],
 		description="Your Email Address",)
 	# Password Field
 	password = PasswordField(
-            'Password',
+            'Password', id="password",
             validators=[DataRequired(message="your password"),
                         Length(
 		min=6, max=16, message='Your password must be a minimum of 6 - 16 charaters'),
                 EqualTo('confirm_password', message='Your Passwords must match')])
 	# Password Confirmation Field
 	confirm_password = PasswordField(
-            'Repeat Password',
+            'Repeat Password', id="confirm_password",
           		validators=[DataRequired(message="confirm password"),
                             EqualTo('password', message='Your Passwords must match')])
 	remember = BooleanField('Remember Me', default='checked')
-	submit = SubmitField('Sign Up')
+	submit = SubmitField('Sign Up' , id="submit")
 
 	def validate_username(self, username):
 		""""our function that ensures that a user username\n
@@ -60,17 +61,34 @@ class LoginForm(FlaskForm):
 	"""
 	# Email Field
 	email = StringField(
-		'Email',
+		'Email',id="email",
 		validators=[DataRequired(message="fill in your email address"), Email()],
 		description="Your Email Address")
 	# Password Field
 	password = PasswordField(
-            'Password',
+            'Password',id="password",
             validators=[DataRequired(message="your password"),
                         Length(min=6, max=16, message='Your password must be a minimum of 6 - 16 charaters')])
 	remember = BooleanField('Remember Me', default='checked')
 	submit = SubmitField('Log In')
 
+	
+	def validate_email(self, email):
+		email = User.query.filter_by(email = email.data).first()
+		if email:
+			pass
+		else:
+			raise ValidationError(f"Sorry that email doesn't match our records ")
+
+	
+	# def validate_password(self, password):
+	# 	hw_password = bcrypt.generate_password_hash(password.data).decode('UTF-8')
+	# 	password = User.query.filter_by(password = hw_password).first()
+	# 	if password:
+	# 		pass
+	# 	else:
+	# 		raise ValidationError(f"Incorrect Password!")
+		
 
 class createPost (FlaskForm):
 	"""

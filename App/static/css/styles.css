@@ -20,9 +20,9 @@ h1, h2, h3, h4, h5, h6 { font-family: "Montserrat", sans-serif; font-weight: 400
 /* Back to top button */
 .back-to-top { position: fixed; display: none; background: #161D31; color: #fff; width: 44px; height: 44px; transform: scale(0); text-align: center; line-height: 1.3; padding-top: .36rem; font-size: 1rem; border-radius: 20%; right: 20px; bottom: 15px; transition: all 0.5s; z-index: 11; }
 
-.back-to-top i { padding-top: 8px; color: #fff; }
+.back-to-top.show-toTop-btn { display: block; transform: scale(1); }
 
-.show-toTop-btn { display: block; transform: scale(1); }
+.back-to-top i { padding-top: 8px; color: #fff; }
 
 .back-to-top i:hover { transform: scale(1.14); }
 
@@ -99,61 +99,61 @@ Animations Section
 
 .fadeIn { animation-name: fadeIn; }
 
+.fadeInDown { animation-name: fadeInDown; }
+
 @keyframes fadeInDown { 0% { opacity: 0;
     transform: translate3d(0, -100%, 0); }
   to { opacity: 1;
     transform: none; } }
 
-.fadeInDown { animation-name: fadeInDown; }
+.fadeInDownBig { animation-name: fadeInDownBig; }
 
 @keyframes fadeInDownBig { 0% { opacity: 0;
     transform: translate3d(0, -2000px, 0); }
   to { opacity: 1;
     transform: none; } }
 
-.fadeInDownBig { animation-name: fadeInDownBig; }
+.fadeInLeft { animation-name: fadeInLeft; }
 
 @keyframes fadeInLeft { 0% { opacity: 0;
     transform: translate3d(-100%, 0, 0); }
   to { opacity: 1;
     transform: none; } }
 
-.fadeInLeft { animation-name: fadeInLeft; }
+.fadeInLeftBig { animation-name: fadeInLeftBig; }
 
 @keyframes fadeInLeftBig { 0% { opacity: 0;
     transform: translate3d(-2000px, 0, 0); }
   to { opacity: 1;
     transform: none; } }
 
-.fadeInLeftBig { animation-name: fadeInLeftBig; }
+.fadeInRight { animation-name: fadeInRight; }
 
 @keyframes fadeInRight { 0% { opacity: 0;
     transform: translate3d(100%, 0, 0); }
   to { opacity: 1;
     transform: none; } }
 
-.fadeInRight { animation-name: fadeInRight; }
+.fadeInRightBig { animation-name: fadeInRightBig; }
 
 @keyframes fadeInRightBig { 0% { opacity: 0;
     transform: translate3d(2000px, 0, 0); }
   to { opacity: 1;
     transform: none; } }
 
-.fadeInRightBig { animation-name: fadeInRightBig; }
+.fadeInUp { animation-name: fadeInUp; }
 
 @keyframes fadeInUp { 0% { opacity: 0;
     transform: translate3d(0, 100%, 0); }
   to { opacity: 1;
     transform: none; } }
 
-.fadeInUp { animation-name: fadeInUp; }
+.fadeInUpBig { animation-name: fadeInUpBig; }
 
 @keyframes fadeInUpBig { 0% { opacity: 0;
     transform: translate3d(0, 2000px, 0); }
   to { opacity: 1;
     transform: none; } }
-
-.fadeInUpBig { animation-name: fadeInUpBig; }
 
 /*--------------------------------------------------------------
 # Header
@@ -238,7 +238,7 @@ Animations Section
 .mobile-nav.mobile-nav-slide { overflow: hidden; left: 0px; }
 
 /*------------------------------------------------------
-Intro Section
+User's Account Page
 ------------------------------------------------------*/
 #user-profile .profile-header { overflow: hidden; }
 
@@ -362,6 +362,8 @@ Intro Section
 
 .info i { font-size: 32px; color: #007bff; float: left; line-height: 1; }
 
+input::-webkit-input-placeholder { content: "login"; }
+
 .form .form-control { border: none; outline: none; border-bottom: 1px solid grey; box-shadow: none; background: transparent !important; }
 
 .form .form-control:focus, .form .form-control:active { background: transparent !important; outline: none; box-shadow: none; border: none; border-bottom: 1px solid var(--info); box-shadow: none; background: var(--white); }
@@ -413,6 +415,8 @@ Intro Section
 
 .dark-theme .article-item:hover, .dark-theme .article-item:hover { box-shadow: 0 2px 25px rgba(0, 0, 0, 0.7); }
 
+.dark-theme .back-to-top { background: initial; filter: none !important; }
+
 .light-theme { filter: none !important; }
 
 .alert-primary { color: #79c0ff !important; background-color: rgba(56, 139, 253, 0.1) !important; border-color: rgba(56, 139, 253, 0.4) !important; }
@@ -446,6 +450,30 @@ Intro Section
 .alert-success .close { color: #56d364 !important; }
 
 .alert-success .alert-link { color: #33c343 !important; }
+
+.tooltip-top { position: relative; }
+
+.tooltip-top::before { content: attr(data-tooltip); background-color: #0d1117; color: #f0f6fc; position: absolute; padding: .5rem; min-width: max-content; max-width: 100%; border-radius: .35rem; top: -50%; left: -50%; transform: translateX(-50%) translateY(-50%) scale(0); transform-origin: top center; opacity: 0; transition: all .3s ease-in; }
+
+.tooltip-top:hover::before { opacity: 1; top: -.35rem; left: 50%; transform: translateX(-50%) translateY(-100%) scale(1); }
+
+.tooltip-bottom { position: relative; }
+
+.tooltip-bottom::before { content: attr(data-tooltip); background-color: #0d1117; color: #f0f6fc; position: absolute; padding: .5rem; min-width: max-content; max-width: 100%; border-radius: .35rem; top: -50%; left: -50%; transform: translateX(-50%) translateY(-50%) scale(0); transform-origin: bottom center; opacity: 0; transition: all .3s ease-in; }
+
+.tooltip-bottom:hover::before { opacity: 1; bottom: -.35rem; left: 50%; transform: translateX(-50%) translateY(100%) scale(1); }
+
+.tooltip-left { position: relative; }
+
+.tooltip-left::before { content: attr(data-tooltip); background-color: #0d1117; color: #f0f6fc; position: absolute; padding: .5rem; min-width: max-content; max-width: 100%; border-radius: .35rem; top: -50%; left: -50%; transform: translateX(-50%) translateY(-50%) scale(0); transform-origin: left center; opacity: 0; transition: all .3s ease-in; }
+
+.tooltip-left:hover::before { opacity: 1; top: 50%; left: -.35rem; transform: translateX(-100%) translateY(-50%) scale(1); }
+
+.tooltip-right { position: relative; }
+
+.tooltip-right::before { content: attr(data-tooltip); background-color: #0d1117; color: #f0f6fc; position: absolute; padding: .5rem; min-width: max-content; max-width: 100%; border-radius: .35rem; top: -50%; left: -50%; transform: translateX(-50%) translateY(-50%) scale(0); transform-origin: right center; opacity: 0; transition: all .3s ease-in; }
+
+.tooltip-right:hover::before { opacity: 1; top: 50%; right: -.35rem; transform: translateX(-100%) translateY(-50%) scale(1); }
 
 /*--------------------------------------------------------------
 # Footer

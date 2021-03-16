@@ -1,0 +1,31 @@
+{% macro render_field(field,icon = '', placeholder = '') -%}
+
+	{{ field.label(class="form-control-label ") }}
+
+	{% if field.errors %}
+
+	<div class="input-group">
+		<div class="input-group-prepend">
+			<span class="input-group-text"><i class="{{icon}}"></i></span>
+		</div>
+		{{ field(class=" form-control, form-control-md, is-invalid ", **kwargs) | safe
+		}}
+		<div class="invalid-feedback">
+			{% for error in field.errors %}
+			<p class="error" aria-errormessage="{{error}}">{{ error }}</p>
+			{% endfor %}
+		</div>
+	</div>
+
+	{% else %}
+
+	<div class="input-group">
+		<div class="input-group-prepend">
+			<span class="input-group-text"><i class="{{icon}}"></i></span>
+		</div>
+		{{ field(class=" form-control form-control-lg  ",**kwargs) | safe }}
+	</div>
+
+	{% endif %}
+
+{%- endmacro %}
