@@ -163,71 +163,82 @@
 	animation-name: fadeIn;
 }
 
-@keyframes fadeInDown {
-	0% {
-		opacity: 0;
-		transform: translate3d(0, -100%, 0);
-	}
 
-	to {
-		opacity: 1;
-		transform: none;
-	}
-}
 
 .fadeInDown {
 	animation-name: fadeInDown;
+
+	@keyframes fadeInDown {
+		0% {
+			opacity: 0;
+			transform: translate3d(0, -100%, 0);
+		}
+
+		to {
+			opacity: 1;
+			transform: none;
+		}
+	}
 }
 
-@keyframes fadeInDownBig {
-	0% {
-		opacity: 0;
-		transform: translate3d(0, -2000px, 0);
-	}
-
-	to {
-		opacity: 1;
-		transform: none;
-	}
-}
 
 .fadeInDownBig {
 	animation-name: fadeInDownBig;
-}
 
-@keyframes fadeInLeft {
-	0% {
-		opacity: 0;
-		transform: translate3d(-100%, 0, 0);
+	@keyframes fadeInDownBig {
+		0% {
+			opacity: 0;
+			transform: translate3d(0, -2000px, 0);
+		}
+
+		to {
+			opacity: 1;
+			transform: none;
+		}
 	}
 
-	to {
-		opacity: 1;
-		transform: none;
-	}
 }
+
 
 .fadeInLeft {
 	animation-name: fadeInLeft;
+	@keyframes fadeInLeft {
+		0% {
+			opacity: 0;
+			transform: translate3d(-100%, 0, 0);
+		}
+
+		to {
+			opacity: 1;
+			transform: none;
+		}
+	}
 }
 
-@keyframes fadeInLeftBig {
-	0% {
-		opacity: 0;
-		transform: translate3d(-2000px, 0, 0);
-	}
 
-	to {
-		opacity: 1;
-		transform: none;
-	}
-}
 
 .fadeInLeftBig {
 	animation-name: fadeInLeftBig;
+
+	@keyframes fadeInLeftBig {
+		0% {
+			opacity: 0;
+			transform: translate3d(-2000px, 0, 0);
+		}
+
+		to {
+			opacity: 1;
+			transform: none;
+		}
+	}
 }
 
-@keyframes fadeInRight {
+
+
+.fadeInRight {
+	animation-name: fadeInRight;
+	
+	@keyframes fadeInRight {
 	0% {
 		opacity: 0;
 		transform: translate3d(100%, 0, 0);
@@ -238,12 +249,14 @@
 		transform: none;
 	}
 }
-
-.fadeInRight {
-	animation-name: fadeInRight;
 }
 
-@keyframes fadeInRightBig {
+
+
+.fadeInRightBig {
+	animation-name: fadeInRightBig;
+	
+	@keyframes fadeInRightBig {
 	0% {
 		opacity: 0;
 		transform: translate3d(2000px, 0, 0);
@@ -254,12 +267,14 @@
 		transform: none;
 	}
 }
-
-.fadeInRightBig {
-	animation-name: fadeInRightBig;
 }
 
-@keyframes fadeInUp {
+
+
+.fadeInUp {
+	animation-name: fadeInUp;
+	
+	@keyframes fadeInUp {
 	0% {
 		opacity: 0;
 		transform: translate3d(0, 100%, 0);
@@ -270,23 +285,20 @@
 		transform: none;
 	}
 }
-
-.fadeInUp {
-	animation-name: fadeInUp;
-}
-
-@keyframes fadeInUpBig {
-	0% {
-		opacity: 0;
-		transform: translate3d(0, 2000px, 0);
-	}
-
-	to {
-		opacity: 1;
-		transform: none;
-	}
 }
 
 .fadeInUpBig {
 	animation-name: fadeInUpBig;
+
+	@keyframes fadeInUpBig {
+		0% {
+			opacity: 0;
+			transform: translate3d(0, 2000px, 0);
+		}
+
+		to {
+			opacity: 1;
+			transform: none;
+		}
+	}
 }

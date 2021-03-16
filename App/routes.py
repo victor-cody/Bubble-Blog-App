@@ -78,7 +78,7 @@ def posts():
 	return render_template('blog/blog_posts.html', posts=blog_posts, title="Posts Section")
 
 
-@app.route("/post/new/")
+@app.route("/posts/new/")
 @login_required
 def new_post():
 	return render_template('blog/publish_post.html', title="New Post")

@@ -1,5 +1,5 @@
 <!-- Header -->
-<header id="header" class="bg-light sticky-top">
+<header id="header" class="bg-light sticky-top header-nav">
 	<nav class=" main-nav navbar navbar-expand-lg navbar-light wow fadeInDown " role="navigation">
 
 		<h1 class="navbar-brand collapsed float-left pl-5 blog-logo-hide">
@@ -46,9 +46,9 @@
 						<div class=" ">
 							<span class="font-weight-bolder mr-2"></span>
 						</div>
-						<span class="avatar drop-down" data-bs-toggle="tooltip"
+						<span class="avatar drop-down tooltip-left" data-bs-toggle="tooltip"
 							data-bs-placement="bottom" title=""
-							data-bs-original-title="Ikechukwu Victor">
+							data-tooltip="{{current_user.username}}" >
 							<img class="avatar rounded-circle"
 								src="../static/images/avatars/avatar3.jpg" alt="avatar" height="35"
 								width="35" data-bs-toggle="tooltip" data-bs-html="true"
@@ -58,9 +58,9 @@
 						</span>
 					</a></li>
 				{% else %}
-				<li class="nav-item mx-1"><a class="nav-link"
+				<li class="nav-item mx-1 btn btn-light"><a class="nav-link"
 						href="{{ url_for('login') }}">Login</a></li>
-				<li class="nav-item mx-1"><a class="nav-link" href="{{ url_for('register') }}"
+				<li class="nav-item mx-1 btn btn-primary text-white"><a class="nav-link" href="{{ url_for('register') }}"
 						target="_blank">Register</a></li>
 				{% endif %}
 			</ul>

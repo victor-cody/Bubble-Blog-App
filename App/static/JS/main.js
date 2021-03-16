@@ -69,7 +69,6 @@ document.querySelectorAll(".nav-item , .nav-link").forEach((element,i,parent) =>
  // Disable empty links
 $('a[href="#"], a[href=""]').attr('href', 'javascript:void(0)');
 
-
 // EventListener for toggle button to toggle btw dark and light mode 
 document.getElementById("dark-mode-toggle").addEventListener("click", (event) => {
     event.preventDefault();
