@@ -33,11 +33,11 @@
 			href="{{ url_for('static', filename = 'lib/css/ionicons.min.css') }}" />
 			<link rel="stylesheet"
 			href="{{ url_for('static', filename = 'lib/css/font-awesome.min.css') }}" />
-		<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
 
-		{% block stylesheets %}
-		
-		{% endblock %}
+			<!-- Vendor -->
+			<link rel="stylesheet" href="{{ url_for('static', filename='lib/css/vendors.css') }}" />
+		<!-- Main Stylesheet -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
 		
 		<script>
 			var renderPage = true;
