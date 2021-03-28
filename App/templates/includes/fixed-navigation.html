@@ -87,7 +87,7 @@ aria-label="Toggle navigation">
 
 
 <!-- ======= Header ======= -->
-<header id="header" class="bg-light wow fadeInLeft " data-width="15rem">
+<header id="header" class="bg-light " data-width="14rem">
 <div class="d-flex flex-column align-items-center justify-content-center">
 
 	<h1 class="mt-5 mb-3">
@@ -120,7 +120,7 @@ aria-label="Toggle navigation">
 	<ul class="navbar-nav pt-1 mt-1 border-top">
 		{% if current_user.is_authenticated %}
 		<li class="nav-item mx-1	">
-			<a class="nav-link" href=""> <i class="fa fa-plus-circle"></i>
+			<a class="nav-link" href="{{ url_for('new_post') }}"> <i class="fa fa-plus-circle"></i>
 				<span>Write Article</span></a></li>
 
 		<li class="nav-item mx-1"><a class="nav-link" href="{{url_for('account')}}"><i

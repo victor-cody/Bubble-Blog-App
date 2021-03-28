@@ -5,14 +5,16 @@ import {
 (function ($, theme) {
   'use strict'
 
-  function giveBodyMargin(main = "#main", header = "#header") {
+  function giveBodyMargin(header = "#header", main = "#main",  footer = "#footer", ) {
     if (!document.querySelector(header)) return;
 
     let margin = document.querySelector(header).getBoundingClientRect().left
     if (margin >= -238 ) {
-      document.querySelector(main).style.marginLeft = '15rem';
+      document.querySelector(main).style.marginLeft = '14rem';
+      document.querySelector(footer).style.marginLeft = '14rem';
     } else {
       document.querySelector(main).style.marginLeft = 'auto';
+      document.querySelector(footer).style.marginLeft = 'auto';
     }
   }
 
