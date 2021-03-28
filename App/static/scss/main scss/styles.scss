@@ -34,6 +34,7 @@ body {
 	background: hsl(0, 60%, 100%);
 	color: #444;
 	background: var(--light);
+	position: relative;
 	font-family: "Rubik",
 	"Lato",
 	"Open Sans",
@@ -138,6 +139,15 @@ Animations Section
 
 // @import "../utilities/fonts";
 @import "../layouts/navbar";
+.left {
+	margin-left: 15rem !important;
+}
+#main {
+	width: 100vw;
+	min-height: 100vh;
+	clear: both;
+	// margin-left: 14rem;
+}
 /*------------------------------------------------------
 User's Account Page
 ------------------------------------------------------*/

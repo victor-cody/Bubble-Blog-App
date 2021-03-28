@@ -1,116 +1,165 @@
+{% from 'includes/blog_logo.html' import center_blog_logo %}
+
+{# 
 <!-- Header -->
 <header id="header" class="bg-light sticky-top header-nav">
-	<nav class=" main-nav navbar navbar-expand-lg navbar-light wow fadeInDown " role="navigation">
+<nav class=" main-nav navbar navbar-expand-lg navbar-light wow fadeInDown " role="navigation">
 
-		<h1 class="navbar-brand collapsed float-left pl-5 blog-logo-hide">
-			<a class="text-light" href="">
-				<img class="blog-logo mr-2"
-					src=" {{ url_for('static', filename='images/logo3.png') }} " alt="blog logo"
-					srcset="" class="mr-1" />
-				Bubble
-				<!-- Flask Blog -->
-			</a>
-		</h1>
+<h1 class="navbar-brand collapsed float-left pl-5 blog-logo-hide">
+<a class="text-light" href="">
+<img class="blog-logo mr-2"
+	src=" {{ url_for('static', filename='images/logo3.png') }} " alt="blog logo"
+	srcset="" class="mr-1" />
+Bubble
+<!-- Flask Blog -->
+</a>
+</h1>
 
-		<div class="collapse navbar-collapse mx-5">
-			<ul class="navbar-nav px-2">
-				<li class="nav-item mx-1"><a class="nav-link" href="{{url_for('home')}}">Home</a>
-				</li>
-				<li class="nav-item mx-1"><a class="nav-link" href="{{ url_for('posts') }}">Blog</a>
-				</li>
-				<li class="nav-item mx-1"><a class="nav-link" href="">About</a></li>
-			</ul>
+<div class="collapse navbar-collapse mx-5">
+<ul class="navbar-nav px-2">
+<li class="nav-item mx-1"><a class="nav-link" href="{{url_for('home')}}">Home</a>
+</li>
+<li class="nav-item mx-1"><a class="nav-link"
+		href="{{ url_for('posts') }}">Blog</a>
+</li>
+<li class="nav-item mx-1"><a class="nav-link" href="">About</a></li>
+</ul>
 
-			<h1 class="navbar-brand mx-auto collapsed ">
-				<a class="text-light" href="">
-					<img class="blog-logo mr-2"
-						src=" {{ url_for('static', filename='images/logo3.png') }} " alt="blog logo"
-						srcset="" class="mr-1" />
-					<!-- Flask Blog -->
-				</a>
-			</h1>
+<h1 class="navbar-brand mx-auto collapsed ">
+<a class="text-light" href="">
+	<img class="blog-logo mr-2"
+		src=" {{ url_for('static', filename='images/logo3.png') }} "
+		alt="blog logo" srcset="" class="mr-1" />
+	<!-- Flask Blog -->
+</a>
+</h1>
 
-			<!-- Navbar Right Side -->
-			<ul class="navbar-nav px-2 mr-2">
-				{% if current_user.is_authenticated %}
-				<li class="nav-item mx-1	">
-					<a class="nav-link" href="">New
-						Post</a></li>
-				<li class="nav-item mx-1"><a class="nav-link"
-						href="{{url_for('account')}}">Account</a></li>
-				<li class="nav-item mx-1"><a class="nav-link"
-						href="{{url_for('logout')}}">Logout</a></li>
-				<li class=""><a
-						class="nav-item d-inline-flex align-items-center justify-content-center"
-						href="">
-						<div class=" ">
-							<span class="font-weight-bolder mr-2"></span>
-						</div>
-						<span class="avatar drop-down tooltip-left" data-bs-toggle="tooltip"
-							data-bs-placement="bottom" title=""
-							data-tooltip="{{current_user.username}}" >
-							<img class="avatar rounded-circle"
-								src="../static/images/avatars/avatar3.jpg" alt="avatar" height="35"
-								width="35" data-bs-toggle="tooltip" data-bs-html="true"
-								data-bs-placement="bottom" title=""
-								data-bs-original-title="{{current_user.username}}">
-							<span class="avatar-status-online"></span>
-						</span>
-					</a></li>
-				{% else %}
-				<li class="nav-item mx-1 btn btn-light"><a class="nav-link"
-						href="{{ url_for('login') }}">Login</a></li>
-				<li class="nav-item mx-1 btn btn-primary text-white"><a class="nav-link" href="{{ url_for('register') }}"
-						target="_blank">Register</a></li>
-				{% endif %}
-			</ul>
-
-			<input type="checkbox" name=" switch theme" id="switch-theme"
-				aria-label="Toggle Dark Mode" class="position-absolute" style="left:-90%;">
-			<label for="" id="dark-mode-toggle"></label>
+<!-- Navbar Right Side -->
+<ul class="navbar-nav px-2 mr-2">
+{% if current_user.is_authenticated %}
+<li class="nav-item mx-1	">
+	<a class="nav-link" href="">New
+		Post</a></li>
+<li class="nav-item mx-1"><a class="nav-link"
+		href="{{url_for('account')}}">Account</a></li>
+<li class="nav-item mx-1"><a class="nav-link"
+		href="{{url_for('logout')}}">Logout</a></li>
+<li class=""><a
+		class="nav-item d-inline-flex align-items-center justify-content-center"
+		href="">
+		<div class=" ">
+			<span class="font-weight-bolder mr-2"></span>
 		</div>
-		<!-- mobile nav button -->
-		<button class="bg-info navbar-toggler collapsed float-right mobile-nav-toggle" id=""
-			type="button" data-bs-toggle="collapse" data-toggle="collapse" data-target="#mobile-nav"
-			aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-	</nav>
+		<span class="avatar drop-down tooltip-left" data-bs-toggle="tooltip"
+			data-bs-placement="bottom" title=""
+			data-tooltip="{{current_user.username}}">
+			<img class="avatar rounded-circle"
+				src="../static/images/avatars/avatar3.jpg" alt="avatar" height="35"
+				width="35" data-bs-toggle="tooltip" data-bs-html="true"
+				data-bs-placement="bottom" title=""
+				data-bs-original-title="{{current_user.username}}">
+			<span class="avatar-status-online"></span>
+		</span>
+	</a></li>
+{% else %}
+<li class="nav-item mx-1 btn btn-light"><a class="nav-link"
+		href="{{ url_for('login') }}">Login</a></li>
+<li class="nav-item mx-1 btn btn-primary text-white"><a class="nav-link"
+		href="{{ url_for('register') }}" target="_blank">Register</a></li>
+{% endif %}
+</ul>
+
+<input type="checkbox" name=" switch theme" id="switch-theme"
+aria-label="Toggle Dark Mode" class="position-absolute" style="left:-90%;">
+<label for="" id="dark-mode-toggle"></label>
+</div>
+<!-- mobile nav button -->
+<button class="bg-info navbar-toggler collapsed float-right mobile-nav-toggle" id=""
+type="button" data-bs-toggle="collapse" data-toggle="collapse"
+data-target="#mobile-nav" aria-controls="mobile-nav" aria-expanded="false"
+aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+</nav>
 
 </header>
+#}
 
 
-  <!-- ======= Header ======= -->
-  <header id="header">
-  	<div class="d-flex flex-column">
+<!-- ======= Header ======= -->
+<header id="header" class="bg-light wow fadeInLeft " data-width="15rem">
+<div class="d-flex flex-column align-items-center justify-content-center">
 
-  		<div class="profile">
-  			<img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
-  			<h1 class="text-light"><a href="index.html">Alex Smith</a></h1>
-  			<div class="social-links mt-3 text-center">
-  				<a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-  				<a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-  				<a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-  				<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-  				<a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-  			</div>
-  		</div>
+	<h1 class="mt-5 mb-3">
+		{{ center_blog_logo()}}
+	</h1>
+<!-- <div class="profile">
+<img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
+<h1 class="text-light"><a href="index.html">Alex Smith</a></h1>
+<div class="social-links mt-3 text-center">
+<a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+<a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+<a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+<a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+</div>
+</div> -->
 
-  		<nav id="navbar" class="nav-menu navbar">
-  			<ul>
-  				<li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i>
-  						<span>Home</span></a></li>
-  				<li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i>
-  						<span>About</span></a></li>
-  				<li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i>
-  						<span>Resume</span></a></li>
-  				<li><a href="#portfolio" class="nav-link scrollto"><i
-  							class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
-  				<li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i>
-  						<span>Services</span></a></li>
-  				<li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i>
-  						<span>Contact</span></a></li>
-  			</ul>
-  		</nav><!-- .nav-menu -->
-  	</div>
-  </header><!-- End Header -->
+<nav id="navbar" class="nav-menu navbar navbar-light" role="navigation">
+<ul class="d-flex flex-column  align-items-center justify-content-center border-top py-3">
+
+	<li class="nav-item mx-1"><a class="nav-link" href="{{url_for('home')}}">
+			<i class="ion-home"></i>
+			<span>Home</span></a>
+	</li>
+
+	<li class="nav-item mx-1"><a class="nav-link" href="{{ url_for('posts') }}"> <i class="fa fa-sticky-note"></i><span>Blog Posts</span> </a>
+	</li>
+
+	<!-- Navbar Right Side -->
+	<ul class="navbar-nav pt-1 mt-1 border-top">
+		{% if current_user.is_authenticated %}
+		<li class="nav-item mx-1	">
+			<a class="nav-link" href=""> <i class="fa fa-plus-circle"></i>
+				<span>Write Article</span></a></li>
+
+		<li class="nav-item mx-1"><a class="nav-link" href="{{url_for('account')}}"><i
+					class="fa fa-user"></i>
+				<span>Account</span></a>
+		</li>
+
+		<li class="nav-item mx-1"><a class="nav-link" href="{{url_for('logout')}}">
+				<i class="ion-log-out"></i>
+				<span>Logout</span></a>
+		</li>
+		<li class=""><a
+				class="nav-item d-inline-flex align-items-center justify-content-center"
+				href="">
+				<div class=" ">
+					<span class="font-weight-bolder mr-2"></span>
+				</div>
+				<span class="avatar drop-down tooltip-left" data-bs-toggle="tooltip"
+					data-bs-placement="bottom" title=""
+					data-tooltip="{{current_user.username}}">
+					<img class="avatar rounded-circle"
+						src="../static/images/avatars/avatar3.jpg" alt="avatar"
+						height="50" width="50" data-bs-toggle="tooltip"
+						data-bs-html="true" data-bs-placement="bottom" title=""
+						data-bs-original-title="{{current_user.username}}">
+					<span class="avatar-status-online"></span>
+				</span>
+			</a></li>
+		{% else %}
+		<li class="nav-item mx-1 btn btn-light"><a class="nav-link"
+				href="{{ url_for('login') }}"> <i class="ion-log-in"></i>
+				<span>Login</span></a></li>
+		<li class="nav-item mx-1 btn btn-primary text-white"><a class="nav-link"
+				href="{{ url_for('register') }}" target="_blank"><i
+					class="fa fa-sign-in"></i>
+				<span>Register</span></a></li>
+		{% endif %}
+	</ul>
+</ul>
+</nav><!-- .nav-menu -->
+</div>
+</header><!-- End Header -->

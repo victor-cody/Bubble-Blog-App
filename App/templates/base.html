@@ -1,251 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8" />
-		<meta lang="en-US" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-		<!-- Optimizing the website for mobile devices -->
-		<meta name="handheldFriendly" content="true" />
-		{% if title %}
-		<title>Flask Blog - {{title}}</title>
-		{% else %}
-		<title>Flask Blog</title>
-		{% endif %}
-		<meta name="viewport"
-			content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui" />
-		<meta name="keywords" content="flask blog, Blog" />
-		<meta content="" name="description" />
+<head>
+	<meta charset="utf-8" />
+	<meta lang="en-US" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+	<!-- Optimizing the website for mobile devices -->
+	<meta name="handheldFriendly" content="true" />
+	{% if title %}
+	<title>Flask Blog - {{title}}</title>
+	{% else %}
+	<title>Flask Blog</title>
+	{% endif %}
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui" />
+	<meta name="keywords" content="flask blog, Blog" />
+	<meta content="" name="description" />
 
-		<meta property="og:type" content="blog" />
-		<meta property="og:image" content="http://phcschoolofai.org/media/logos/whitelogo.png" />
-		<meta property="og:site_name" content="Burble Blog" />
-		<meta property="og:description"
-			content="The Burble blog
-		A Not-For-Profit organization whose primary objective is to democratize AI education in Port Harcourt for free ." />
-		<!-- Favicons -->
-		<link type="image/png" href="{{ url_for('static', filename='images/logo3.png') }}"
-			rel="shortcut icon" />
-		<!-- <link href="{{url_for('static', filename = 'lib/animate/animate.min.css')}}" rel="stylesheet" /> -->
-		<link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}" />
-		<!-- Fonts && Icons -->
+	<meta property="og:type" content="blog" />
+	<meta property="og:image" content="http://phcschoolofai.org/media/logos/whitelogo.png" />
+	<meta property="og:site_name" content="Burble Blog" />
+	<meta property="og:description"
+		content="The Burble blog
+	A Not-For-Profit organization whose primary objective is to democratize AI education in Port Harcourt for free ." />
+	<!-- Favicons -->
+	<link type="image/png" href="{{ url_for('static', filename='images/logo3.png') }}"
+		rel="shortcut icon" />
+	<!-- <link href="{{url_for('static', filename = 'lib/animate/animate.min.css')}}" rel="stylesheet" /> -->
+	<link rel="stylesheet" href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}" />
+	<!-- Fonts && Icons -->
+	<link rel="stylesheet"
+		href="{{ url_for('static', filename = 'lib/css/ionicons.min.css') }}" />
 		<link rel="stylesheet"
-			href="{{ url_for('static', filename = 'lib/css/ionicons.min.css') }}" />
-			<link rel="stylesheet"
-			href="{{ url_for('static', filename = 'lib/css/font-awesome.min.css') }}" />
+		href="{{ url_for('static', filename = 'lib/css/font-awesome.min.css') }}" />
 
-			<!-- Vendor -->
-			<link rel="stylesheet" href="{{ url_for('static', filename='lib/css/vendors.css') }}" />
-		<!-- Main Stylesheet -->
-		<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
-		
-		<script>
-			var renderPage = true;
+		<!-- Vendor -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='lib/css/vendors.css') }}" />
+	<!-- Main Stylesheet -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+	
+	<script>
+		var renderPage = true;
 
-			if (navigator.userAgent.indexOf('MSIE') !== -1 ||
-				navigator.appVersion.indexOf('Trident/') > 0) {
-				/* Microsoft Internet Explorer detected in. */
-				alert("Please view this in a modern browser such as Chrome or Microsoft Edge.");
-				renderPage = false;
-			}
-		</script>
+		if (navigator.userAgent.indexOf('MSIE') !== -1 ||
+			navigator.appVersion.indexOf('Trident/') > 0) {
+			/* Microsoft Internet Explorer detected in. */
+			alert("Please view this in a modern browser such as Chrome or Microsoft Edge.");
+			renderPage = false;
+		}
+	</script>
 
-	</head>
+</head>
 
-	<body class="" id="bubble-blog">
-		<!--==========================
-	Header
-	============================-->
-		{% block page_header %}
-		{% include "includes/fixed-navigation.html" %}
-		{% endblock %}
+<body class="" id="bubble-blog">
+	<!--==========================
+Header
+============================-->
+	{% block page_header %}
+	{% include "includes/fixed-navigation.html" %}
+	{% endblock %}
+	
 
-		<main role="main" class="container mt-3 pb-4 pt-2">
-			<div class="row justify-content-center">
-				<!-- <div class="col-md-8"> -->
-				<!-- Displaying the Flashed Messages on the pages -->
-				{% with messages = get_flashed_messages(with_categories=true) %}
-				{% if messages %}
-				{% for category, message in messages %}
-				<div class=" mt-4 col-md-8 alert alert-{{category}} alert-dismissible fade show"
-					role="alert">
-					{{ message }}
-					<button type="button" class="close" data-bs-dismiss="alert"
-						aria-label="Close">x</button>
-				</div>
-				{% endfor %}
-				{% endif %}
-				{% endwith %}
-				<!-- our main content container -->
-				{% block main_content %}
-
-				{% endblock %}
-				<!-- </div> -->
-				{% block aside %}
-				<aside
-					class=" content-section wow fadeInRight bd-aside col-md-4 sticky-right text-muted align-self-start px-2"
-					data-wow-delay="0.2s">
-					<h2 class="h4 pt-4 pb-3 mb-4 border-bottom text-capitalize text-center">On this
-						page</h2>
-					<nav class="small" id="toc">
-						<ul class="list-unstyled">
-							<li class="my-2">
-								<button class="btn d-inline-flex align-items-center collapsed"
-									data-bs-toggle="collapse" aria-expanded="false"
-									data-bs-target="#contents-collapse"
-									aria-controls="contents-collapse">Media</button>
-								<ul class="list-unstyled ps-3 collapse" id="contents-collapse">
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#typography">Typography</a></li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#images">Images</a>
-									</li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#tables">Tables</a>
-									</li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#figures">Figures</a>
-									</li>
-								</ul>
-							</li>
-							<li class="my-2">
-								<button class="btn d-inline-flex align-items-center collapsed"
-									data-bs-toggle="collapse" aria-expanded="false"
-									data-bs-target="#forms-collapse"
-									aria-controls="forms-collapse">Announcements</button>
-								<ul class="list-unstyled ps-3 collapse" id="forms-collapse">
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#overview">Overview</a></li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#disabled-forms">Disabled forms</a></li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#sizing">Sizing</a>
-									</li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#input-group">Input
-											group</a></li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#floating-labels">Floating labels</a></li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#validation">Validation</a></li>
-								</ul>
-							</li>
-							<li class="my-2">
-								<button class="btn d-inline-flex align-items-center collapsed"
-									data-bs-toggle="collapse" aria-expanded="false"
-									data-bs-target="#components-collapse"
-									aria-controls="components-collapse">Posts</button>
-								<ul class="list-unstyled ps-3 collapse" id="components-collapse">
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#accordion">Accordion</a></li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#alerts">Alerts</a>
-									</li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#badge">Badge</a></li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#breadcrumb">Breadcrumb</a></li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#buttons">Buttons</a>
-									</li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#button-group">Button
-											group</a></li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#card">Card</a></li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#carousel">Carousel</a></li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#dropdowns">Dropdowns</a></li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#list-group">List
-											group</a></li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#modal">Modal</a></li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#navs">Navs</a></li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#navbar">Navbar</a>
-									</li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#pagination">Pagination</a></li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#popovers">Popovers</a></li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#progress">Progress</a></li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#scrollspy">Scrollspy</a></li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#spinners">Spinners</a></li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#toasts">Toasts</a>
-									</li>
-									<li><a class="d-inline-flex align-items-center rounded"
-											href="#tooltips">Tooltips</a></li>
-								</ul>
-							</li>
-						</ul>
-					</nav>
-				</aside>
-				{% endblock %}
-
+	<main id="main" role="main" class="container pb-4 pt-2">
+		<div class="row justify-content-center">
+			<!-- <div class="col-md-8"> -->
+			<!-- Displaying the Flashed Messages on the pages -->
+			{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+			{% for category, message in messages %}
+			<div class=" mt-4 col-md-8 alert alert-{{category}} alert-dismissible fade show"
+				role="alert">
+				{{ message }}
+				<button type="button" class="close" data-bs-dismiss="alert"
+					aria-label="Close">x</button>
 			</div>
-		</main>
+			{% endfor %}
+			{% endif %}
+			{% endwith %}
+			<!-- our main content container -->
+			{% block main_content %}
 
-		{% block footer %}
-		{% include "includes/footer.html" %}
-		{% endblock %}
-
-		<!--==========================
-		Mobile Nav Section
-	============================-->
-		<nav id="mobile-nav" class="mobile-nav navbar bg-light navbar-light " role="navigation">
-			<ul class="" style="touch-action: pan-y" id="">
-				<li>
-					<input type="checkbox" name=" switch theme" id="switch-theme"
-						class="position-absolute" style="left:-10%;" aria-label="Toggle Dark Mode">
-					<label for="" id="dark-mode-toggle"></label>
-				</li>
-				<li class="menu-active menu-item-active"><a class="text-dark" href="#intro">Home</a>
-				</li>
-				<li class=""><a class="text-dark" href="#about">About Us</a></li>
-				<li class="menu-has-children">
-					<i class="fa fa-chevron-down"></i><a href="#services">Services</a>
-					<ul class="toservices">
-						<li><a class="text-dark" href="#">Lorem Ipsum</a></li>
-						<li><a class="text-dark" href="#">Dolor Sitema</a></li>
-						<li><a class="text-dark" href="#">Book Business</a></li>
-						<li><a class="text-dark" href="#">Explore more</a></li>
-						<li><a class="text-dark" href="#">records</a></li>
-						<li><a class="text-dark" href="#">Meet professionals</a></li>
+			{% endblock %}
+			<!-- </div> -->
+			{% block aside %}
+			<aside
+				class=" content-section wow fadeInRight bd-aside col-md-4 sticky-right text-muted align-self-start px-2"
+				data-wow-delay="0.2s">
+				<h2 class="h4 pt-4 pb-3 mb-4 border-bottom text-capitalize text-center">On this
+					page</h2>
+				<nav class="small" id="toc">
+					<ul class="list-unstyled">
+						<li class="my-2">
+							<button class="btn d-inline-flex align-items-center collapsed"
+								data-bs-toggle="collapse" aria-expanded="false"
+								data-bs-target="#contents-collapse"
+								aria-controls="contents-collapse">Media</button>
+							<ul class="list-unstyled ps-3 collapse" id="contents-collapse">
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#typography">Typography</a></li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#images">Images</a>
+								</li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#tables">Tables</a>
+								</li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#figures">Figures</a>
+								</li>
+							</ul>
+						</li>
+						<li class="my-2">
+							<button class="btn d-inline-flex align-items-center collapsed"
+								data-bs-toggle="collapse" aria-expanded="false"
+								data-bs-target="#forms-collapse"
+								aria-controls="forms-collapse">Announcements</button>
+							<ul class="list-unstyled ps-3 collapse" id="forms-collapse">
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#overview">Overview</a></li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#disabled-forms">Disabled forms</a></li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#sizing">Sizing</a>
+								</li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#input-group">Input
+										group</a></li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#floating-labels">Floating labels</a></li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#validation">Validation</a></li>
+							</ul>
+						</li>
+						<li class="my-2">
+							<button class="btn d-inline-flex align-items-center collapsed"
+								data-bs-toggle="collapse" aria-expanded="false"
+								data-bs-target="#components-collapse"
+								aria-controls="components-collapse">Posts</button>
+							<ul class="list-unstyled ps-3 collapse" id="components-collapse">
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#accordion">Accordion</a></li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#alerts">Alerts</a>
+								</li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#badge">Badge</a></li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#breadcrumb">Breadcrumb</a></li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#buttons">Buttons</a>
+								</li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#button-group">Button
+										group</a></li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#card">Card</a></li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#carousel">Carousel</a></li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#dropdowns">Dropdowns</a></li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#list-group">List
+										group</a></li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#modal">Modal</a></li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#navs">Navs</a></li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#navbar">Navbar</a>
+								</li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#pagination">Pagination</a></li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#popovers">Popovers</a></li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#progress">Progress</a></li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#scrollspy">Scrollspy</a></li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#spinners">Spinners</a></li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#toasts">Toasts</a>
+								</li>
+								<li><a class="d-inline-flex align-items-center rounded"
+										href="#tooltips">Tooltips</a></li>
+							</ul>
+						</li>
 					</ul>
-				</li>
-				<li class=""><a href="#portfolio">Portfolio</a></li>
-				<li class=""><a href="#team">Team</a></li>
-				<li class="menu-has-children">
-					<i class="fa fa-chevron-down"></i><a class="text-dark" href="#"
-						class="sf-with-ul">Drop Down</a>
-					<ul style="display: none">
-						<li><a class="text-dark" href="#">Drop Down 1</a></li>
-						<li><a class="text-dark" href="#">Drop Down 3</a></li>
-						<li><a class="text-dark" href="#">Drop Down 4</a></li>
-						<li><a class="text-dark" href="#">Drop Down 5</a></li>
-					</ul>
-				</li>
-				<li class=""><a class="text-dark" href="#contact">Contact</a></li>
-			</ul>
-		</nav>
-		<!-- #mobile nav menu -->
-		<a href="#" class="back-to-top bg-dark" title="back to top" aria-label="back to top"><i
-				class="fa fa-arrow-up"></i></a>
+				</nav>
+			</aside>
+			{% endblock %}
 
-		<!-- Our Javascript files -->
-		{% include "includes/scripts.html" %}
-		<!-- Specific Page JS goes HERE  -->
-		{% block scripts %}
+		</div>
+	</main>
 
-		{% endblock %}
+	{% block footer %}
+	{% include "includes/footer.html" %}
+	{% endblock %}
 
-	</body>
+	<!--==========================
+	Mobile Nav Section
+============================-->
+	<nav id="mobile-nav" class="mobile-nav navbar bg-light navbar-light " role="navigation">
+		<ul class="" style="touch-action: pan-y" id="">
+			<li>
+				<input type="checkbox" name=" switch theme" id="switch-theme"
+					class="position-absolute" style="left:-10%;" aria-label="Toggle Dark Mode">
+				<label for="" id="dark-mode-toggle"></label>
+			</li>
+			<li class="menu-active menu-item-active"><a class="text-dark" href="#intro">Home</a>
+			</li>
+			<li class=""><a class="text-dark" href="#about">About Us</a></li>
+			<li class="menu-has-children">
+				<i class="fa fa-chevron-down"></i><a href="#services">Services</a>
+				<ul class="toservices">
+					<li><a class="text-dark" href="#">Lorem Ipsum</a></li>
+					<li><a class="text-dark" href="#">Dolor Sitema</a></li>
+					<li><a class="text-dark" href="#">Book Business</a></li>
+					<li><a class="text-dark" href="#">Explore more</a></li>
+					<li><a class="text-dark" href="#">records</a></li>
+					<li><a class="text-dark" href="#">Meet professionals</a></li>
+				</ul>
+			</li>
+			<li class=""><a href="#portfolio">Portfolio</a></li>
+			<li class=""><a href="#team">Team</a></li>
+			<li class="menu-has-children">
+				<i class="fa fa-chevron-down"></i><a class="text-dark" href="#"
+					class="sf-with-ul">Drop Down</a>
+				<ul style="display: none">
+					<li><a class="text-dark" href="#">Drop Down 1</a></li>
+					<li><a class="text-dark" href="#">Drop Down 3</a></li>
+					<li><a class="text-dark" href="#">Drop Down 4</a></li>
+					<li><a class="text-dark" href="#">Drop Down 5</a></li>
+				</ul>
+			</li>
+			<li class=""><a class="text-dark" href="#contact">Contact</a></li>
+		</ul>
+	</nav>
+	<!-- #mobile nav menu -->
+	<a href="#" class="back-to-top bg-dark" title="back to top" aria-label="back to top"><i
+			class="fa fa-arrow-up"></i></a>
+
+	<!-- Our Javascript files -->
+	{% include "includes/scripts.html" %}
+	<!-- Specific Page JS goes HERE  -->
+	{% block scripts %}
+
+	{% endblock %}
+
+</body>
 
 </html>

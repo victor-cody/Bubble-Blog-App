@@ -5,7 +5,7 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; }
 
-body { background: white; color: #444; background: var(--light); font-family: "Rubik", "Lato", "Open Sans", sans-serif; font-size: 1rem; overflow-x: hidden; scroll-behavior: smooth; scroll-margin-top: 2rem; transition: all ease-in-out .3s; }
+body { background: white; color: #444; background: var(--light); position: relative; font-family: "Rubik", "Lato", "Open Sans", sans-serif; font-size: 1rem; overflow-x: hidden; scroll-behavior: smooth; scroll-margin-top: 2rem; transition: all ease-in-out .3s; }
 
 body * { transition: all .3s ease-in; }
 
@@ -155,14 +155,34 @@ Animations Section
   to { opacity: 1;
     transform: none; } }
 
-/*--------------------------------------------------------------
+/*-------------------------------------------------
 # Header
---------------------------------------------------------------*/
-#header { height: 74px; /* background: rgba(0, 0, 0, 0.9); */ transition: all 0.5s; z-index: 99; transition: all 0.8s ease-in-out; clear: both; }
+---------------------------------------------------*/
+#header { position: fixed; top: 0; left: 0; bottom: 0; width: 15rem; transition: all ease-in-out 0.5s; z-index: 9997; transition: all 0.5s; padding: 0 15px; overflow-y: auto; clear: both; box-shadow: 0px 0px 28px rgba(127, 137, 161, 0.267); }
 
-#header .blog-logo-hide { display: none; }
+@media screen and (max-width: 1000px) { #header { left: -15rem; } }
 
-#header * { clear: both; }
+/*-------------------------------------------------
+# Navigation Menu
+---------------------------------------------------*/
+/* Desktop Navigation */
+.nav-menu { padding: 30px 0 0 0; }
+
+.nav-menu * { margin: 0; padding: 0; list-style: none; text-decoration: none; color: #101523; }
+
+.nav-menu *:hover { color: #101523; }
+
+.nav-menu li { margin: .3rem 0; }
+
+.nav-menu ul > li { position: relative; white-space: nowrap; }
+
+.nav-menu a { display: flex; align-items: center; padding: .5rem 1rem; margin-bottom: .4rem; transition: 0.3s; font-size: 1rem; font-weight: 500; }
+
+.nav-menu a i { font-size: 24px; padding-right: 8px; color: #6e7681; }
+
+.nav-menu a:hover i { color: #1f6feb; }
+
+.nav-menu .nav-link.active { font-weight: 500; }
 
 #switch-theme.active + label { background: #fff !important; box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.123) !important; }
 
@@ -176,20 +196,6 @@ Animations Section
 # Navigation Menu
 --------------------------------------------------------------*/
 /* Desktop Navigation */
-.site-header .navbar-nav .nav-link { color: #cbd5db; }
-
-.site-header .navbar-nav .nav-link:hover { color: #ffffff; }
-
-.site-header .navbar-nav .nav-link.active { font-weight: 500; }
-
-.main-nav { min-width: 80%; max-width: auto; height: 100%; position: relative; box-shadow: 0px 0px 28px rgba(127, 137, 161, 0.267); border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; }
-
-.main-nav, .main-nav * { margin: 0; padding: 0; list-style: none; }
-
-.main-nav > ul > li { position: relative; white-space: nowrap; float: left; }
-
-.main-nav a { display: block; position: relative; padding: 10px 5px; transition: 0.3s; font-size: 1rem; font-family: "Montserrat", sans-serif !important; font-weight: 700 !important; }
-
 .main-nav .drop-down ul { display: block; position: absolute; left: 0; top: calc(100% + 30px); z-index: 99; opacity: 0; visibility: hidden; padding: 10px 0; background: #fff; box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25); transition: ease all 0.3s; }
 
 .main-nav .drop-down:hover > ul { opacity: 1; top: 100%; visibility: visible; }
@@ -217,25 +223,9 @@ Animations Section
 
 .mobile-nav a { display: block; position: relative; padding: 10px 20px; font-weight: 500; }
 
-.mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a { color: #74b5fc; text-decoration: none; }
+.left { margin-left: 15rem !important; }
 
-.mobile-nav .drop-down > a:after { content: "\f078"; font-family: FontAwesome; padding-left: 10px; position: absolute; right: 15px; }
-
-.mobile-nav .active.drop-down > a:after { content: "\f077"; }
-
-.mobile-nav .drop-down > a { padding-right: 35px; }
-
-.mobile-nav .drop-down ul { display: none; overflow: hidden; }
-
-.mobile-nav .drop-down li { padding-left: 20px; }
-
-.mobile-nav-toggle { position: absolute; right: 20px; top: 20px; z-index: 999; font-size: 24px; transition: all 0.4s; cursor: pointer; }
-
-.mobile-nav-toggle i { margin: 18px 18px 0 0; color: #004289; }
-
-.mobile-nav-overly { width: 100%; height: 100%; z-index: 9997; top: 0; left: 0; position: fixed; background: rgba(19, 39, 57, 0.8); overflow: hidden; display: none; }
-
-.mobile-nav.mobile-nav-slide { overflow: hidden; left: 0px; }
+#main { width: 100vw; min-height: 100vh; clear: both; }
 
 /*------------------------------------------------------
 User's Account Page

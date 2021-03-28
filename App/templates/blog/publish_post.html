@@ -860,11 +860,12 @@
 
 {% block scripts %}
 <!-- BEGIN: Page Vendor JS-->
-<script src="../../static/js/page-blog-edit.js"></script>
 <script src="{{ url_for('static', filename = 'lib/js/editors/select2.full.min.js')}}"></script>
 <script src="{{ url_for('static', filename = 'lib/js/editors/katex.min.js')}}"></script>
 <script src="{{ url_for('static', filename = 'lib/js/editors/highlight.min.js')}}"></script>
 <script src="{{ url_for('static', filename = 'lib/js/editors/quill.min.js')}}"></script>
 <!-- END: Page Vendor JS-->
+
+<script src="../../static/js/page-blog-edit.js"></script>
 
 {% endblock %}

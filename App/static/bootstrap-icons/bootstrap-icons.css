@@ -47,7 +47,7 @@ url("./fonts/bootstrap-icons.woff2?4601c71fb26c9277391ec80789bfde9c") format("wo
 .bi-arrow-down-left-circle::before { content: "\f11b"; }
 .bi-arrow-down-left-square-fill::before { content: "\f11c"; }
 .bi-arrow-down-left-square::before { content: "\f11d"; }
-.bi-arrow-down-left::before { content: "\f11e"; }
+.bi-arrow-down-left::before { content: "\f11e"; } 
 .bi-arrow-down-right-circle-fill::before { content: "\f11f"; }
 .bi-arrow-down-right-circle::before { content: "\f120"; }
 .bi-arrow-down-right-square-fill::before { content: "\f121"; }
